@@ -1,7 +1,11 @@
 import React, { Fragment } from "react";
-
+import Navbar from "./Navbar";
 const index = () => {
-  return <Fragment></Fragment>;
+  return (
+    <Fragment>
+      <Navbar />
+    </Fragment>
+  );
 };
 
 export default index;
