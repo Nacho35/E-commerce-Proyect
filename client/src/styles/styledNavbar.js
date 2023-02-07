@@ -108,7 +108,7 @@ export const Logo = styled.img`
   justify-content: center;
   margin-right: 10px;
   margin-bottom: 5px;
-  border-radius: 1rem;
+  border-radius: 50px;
 `;
 
 export const SPAN = styled.span`
