@@ -14,13 +14,16 @@ import {
   Boxburguer1,
   AB,
   Cross,
+  Bars,
 } from "../styles/styledNavbar";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleWindowResize = () => {
-    setIsOpen(false);
+    if (window.innerWidth > 800) {
+      setIsOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -34,7 +37,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Box>
-        <Box1>
+        <Box1 style={{ display: isOpen ? "none" : "flex" }}>
           <Logo src={logo} alt="logo" />
           <B href="">
             RESTFOOD <SPAN>RESTAURANT</SPAN>
@@ -61,28 +64,34 @@ const Navbar = () => {
       </Boxburguer1>
       <Btn type="button" onClick={() => setIsOpen(!isOpen)}>
         {!isOpen ? (
-          <svg
-            width="40px"
-            height="40px"
+          <Bars
+            width="50px"
+            height="50px"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
             fill="none">
             <path
-              stroke="#000000"
+              stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               d="M4 6H20M4 12H20M4 18H20"
             />
-          </svg>
+          </Bars>
         ) : (
           <Cross
-            fill="#000000"
-            width="40px"
-            height="40px"
+            fill="none"
+            width="50px"
+            height="50px"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.293,18.293,10.586,12,4.293,5.707A1,1,0,0,1,5.707,4.293L12,10.586l6.293-6.293a1,1,0,1,1,1.414,1.414L13.414,12l6.293,6.293a1,1,0,1,1-1.414,1.414L12,13.414,5.707,19.707a1,1,0,0,1-1.414-1.414Z" />
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              d="M4.293,18.293,10.586,12,4.293,5.707A1,1,0,0,1,5.707,4.293L12,10.586l6.293-6.293a1,1,0,1,1,1.414,1.414L13.414,12l6.293,6.293a1,1,0,1,1-1.414,1.414L12,13.414,5.707,19.707a1,1,0,0,1-1.414-1.414Z"
+            />
           </Cross>
         )}
       </Btn>

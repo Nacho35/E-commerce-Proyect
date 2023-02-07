@@ -8,5 +8,5 @@ export const colors = {
   seven: "#243238",
   eight: "#2d394b",
   nine: "#31af36",
-  ten: "##FFCC33",
+  ten: "#ffcc33",
 };
