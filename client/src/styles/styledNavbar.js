@@ -8,6 +8,9 @@ export const Nav = styled.nav`
   padding-top: 10px;
   width: 100%;
   overflow-x: hidden;
+  top: 0;
+  position: fixed;
+  z-index: 999;
 `;
 
 export const Box = styled.div`

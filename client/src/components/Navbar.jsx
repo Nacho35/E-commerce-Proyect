@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/logo.jpeg";
 import {
   Nav,
   Box,
@@ -38,9 +37,8 @@ const Navbar = () => {
     <Nav>
       <Box>
         <Box1 style={{ display: isOpen ? "none" : "flex" }}>
-          <Logo src={logo} alt="logo" />
           <B href="">
-            RESTFOOD <SPAN>RESTAURANT</SPAN>
+            RESTFOOD <SPAN>Restaurant</SPAN>
           </B>
         </Box1>
         <Box2 style={{ display: isOpen ? "none" : "flex" }}>
