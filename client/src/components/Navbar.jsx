@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Image from "../assets/food-dinner.svg";
 import {
   Nav,
   Box,
   Box1,
   Box2,
   A,
-  Logo,
   B,
   SPAN,
   Btn,
@@ -14,6 +14,7 @@ import {
   AB,
   Cross,
   Bars,
+  Logo,
 } from "../styles/styledNavbar";
 
 const Navbar = () => {
@@ -37,8 +38,9 @@ const Navbar = () => {
     <Nav>
       <Box>
         <Box1 style={{ display: isOpen ? "none" : "flex" }}>
+          <Logo src={Image} alt="logo" />
           <B href="">
-            RESTFOOD <SPAN>Restaurant</SPAN>
+            SARGIOTTI <SPAN>Restaurant</SPAN>
           </B>
         </Box1>
         <Box2 style={{ display: isOpen ? "none" : "flex" }}>
