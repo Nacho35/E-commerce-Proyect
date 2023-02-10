@@ -18,10 +18,9 @@ export const Box2 = styled.div`
 `;
 
 export const Box3 = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: block;
   padding: 1rem;
-  padding-top: 6rem;
+  padding-top: 8rem;
 `;
 
 export const Title = styled.h1`
@@ -34,12 +33,28 @@ export const SPAN = styled.span`
   display: flex;
 `;
 
+export const BoxP = styled.div`
+  display: block;
+`;
+
 export const Text = styled.p`
   color: ${colors.six};
   font-size: 1rem;
-  display: flex;
-  text-align: justify;
+  display: block;
+  text-align: left;
   margin-bottom: 2rem;
+
+  @media (min-width: 1200px) {
+    width: 30%;
+  }
+
+  @media (min-width: 992px) {
+    width: 30%;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export const Btn = styled.a`

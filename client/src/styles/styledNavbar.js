@@ -96,7 +96,7 @@ export const B = styled.a`
   font-size: 2rem;
 
   @media (min-width: 1024px) {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   &:hover {
@@ -105,13 +105,12 @@ export const B = styled.a`
 `;
 
 export const Logo = styled.img`
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 5rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   margin-right: 10px;
   margin-bottom: 5px;
-  border-radius: 50px;
 `;
 
 export const SPAN = styled.span`
@@ -121,11 +120,11 @@ export const SPAN = styled.span`
   justify-content: center;
 
   @media (min-width: 1024px) {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   @media (min-width: 1920px) {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 `;
 
