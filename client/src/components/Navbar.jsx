@@ -40,7 +40,7 @@ const Navbar = () => {
         <Box1 style={{ display: isOpen ? "none" : "flex" }}>
           <Logo src={Image} alt="logo" />
           <B href="">
-            SARGIOTTI <SPAN>Restaurant</SPAN>
+            SARGIOTTI'S <SPAN>Restaurant</SPAN>
           </B>
         </Box1>
         <Box2 style={{ display: isOpen ? "none" : "flex" }}>
