@@ -3,7 +3,7 @@ import { colors } from "./Theme";
 
 export const Box = styled.div`
   width: auto;
-  height: 100vh;
+  height: auto;
   background-color: ${colors.one};
   overflow-x: hidden;
 `;
@@ -43,6 +43,11 @@ export const BoxP = styled.div`
   }
 `;
 
+export const BoxT = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const Title = styled.h2`
   color: ${colors.six};
   text-align: center;
@@ -52,19 +57,35 @@ export const Title = styled.h2`
 `;
 
 export const Icon = styled.img`
-  width: 10%;
+  width: 6%;
   height: auto;
+  margin-right: 1rem;
+
+  @media (min-width: 360px) {
+    width: 10%;
+    height: auto;
+  }
+
+  @media (min-width: 776px) {
+    width: 6%;
+    height: auto;
+  }
+
+  @media (min-width: 992px) {
+    width: 3%;
+    height: auto;
+  }
 
   @media (min-width: 1200px) {
-    width: 4%;
+    width: 6%;
     height: auto;
   }
   @media (min-width: 1024px) {
-    width: 8%;
+    width: 5%;
     height: auto;
   }
   @media (min-width: 1280px) {
-    width: 4%;
+    width: 3%;
     height: auto;
   }
 `;
@@ -92,4 +113,11 @@ export const TitlePic = styled.h3`
   text-align: center;
   text-transform: uppercase;
   font-size: 1rem;
+`;
+
+export const Price = styled.h3`
+  color: ${colors.ten};
+  display: flex;
+  justify-content: center;
+  font-weight: 900;
 `;

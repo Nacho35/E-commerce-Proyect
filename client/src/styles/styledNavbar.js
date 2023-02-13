@@ -21,7 +21,6 @@ export const Box = styled.div`
 
 export const Box1 = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: center;
 
   @media (min-width: 992px) {
@@ -93,10 +92,10 @@ export const B = styled.a`
   margin-top: 12px;
   font-weight: 600;
   margin-right: 1rem;
-  font-size: 2rem;
+  font-size: 1.7rem;
 
   @media (min-width: 1024px) {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   &:hover {
@@ -105,12 +104,12 @@ export const B = styled.a`
 `;
 
 export const Logo = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
-  margin-right: 10px;
-  margin-bottom: 5px;
+  margin-right: 1rem;
+  margin-top: 1rem;
 `;
 
 export const SPAN = styled.span`

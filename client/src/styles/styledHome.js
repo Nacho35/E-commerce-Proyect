@@ -5,7 +5,7 @@ import Food from "../assets/bg-header.png";
 export const Box = styled.div`
   display: flex;
   width: auto;
-  height: 100vh;
+  height: 80ch;
   background-image: url(${Food});
   background-size: cover;
   background-attachment: fixed;
@@ -19,8 +19,9 @@ export const Box2 = styled.div`
 
 export const Box3 = styled.div`
   display: block;
-  padding: 1rem;
-  padding-top: 8rem;
+  margin: auto;
+  margin-top: auto;
+  margin-left: 1rem;
 `;
 
 export const Title = styled.h1`

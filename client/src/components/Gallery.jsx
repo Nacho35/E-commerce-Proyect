@@ -9,8 +9,10 @@ import {
   Pic,
   TitlePic,
   BoxP,
+  BoxT,
+  Price,
 } from "../styles/styledGallery";
-import RestFood from "../assets/restaurant-food.svg";
+import RestFood from "../assets/food.svg";
 import Slider from "react-slick";
 import Food1 from "../assets/special-dishes-1.png";
 import Food2 from "../assets/special-dishes-2.jpg";
@@ -29,26 +31,16 @@ const Gallery = () => {
     slidesToShow: 4,
     swipeToSlide: true,
     arrows: false,
-    afterChange: function (index) {
-      return `Slider Changed to: ${
-        index + 1
-      }, background: #222; color: #bada55`;
-    },
     cssEase: "linear",
-    appendDots: (dots) => (
-      <div
-        style={{
-          backgroundColor: "transparent",
-          padding: "0px",
-        }}>
-        <ul> {dots} </ul>
-      </div>
-    ),
     customPaging: (i) => (
       <div
         style={{
-          color: "#ffcc33",
-          width: "10%",
+          width: "10px",
+          height: "10px",
+          borderRadius: "50%",
+          backgroundColor: "#ffcc33",
+          display: "inline-block",
+          alignItems: "center",
         }}>
         {i + 1}
       </div>
@@ -81,7 +73,6 @@ const Gallery = () => {
           slidesToShow: 1,
           swipeToSlide: true,
           fade: true,
-          dots: false,
         },
       },
       {
@@ -90,7 +81,6 @@ const Gallery = () => {
           slidesToShow: 1,
           swipeToSlide: true,
           fade: true,
-          dots: false,
         },
       },
     ],
@@ -98,9 +88,10 @@ const Gallery = () => {
   return (
     <Box>
       <Box2>
-        <Title>
-          <Icon src={RestFood} alt="icon" /> Our Special Dishes
-        </Title>
+        <BoxT>
+          <Icon src={RestFood} alt="icon" />
+          <Title>Our Special Dishes</Title>
+        </BoxT>
         <BoxP>
           <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
@@ -120,6 +111,7 @@ const Gallery = () => {
             et velit praesentium, placeat sed voluptate deserunt. Corrupti
             possimus quas repudiandae.
           </Text>
+          <Price>$8.60</Price>
         </BoxG>
         <BoxG>
           <Pic src={Food2} alt="image2" />
@@ -130,6 +122,7 @@ const Gallery = () => {
             non cupiditate voluptas facere nesciunt nihil et amet culpa
             reprehenderit eius. Ullam?
           </Text>
+          <Price>$11.30</Price>
         </BoxG>
         <BoxG>
           <Pic src={Food3} alt="image3" />
@@ -140,6 +133,7 @@ const Gallery = () => {
             voluptate ullam odio quis sunt veritatis odit exercitationem
             repellat quo illo amet.
           </Text>
+          <Price>$12.99</Price>
         </BoxG>
         <BoxG>
           <Pic src={Food4} alt="image4" />
@@ -150,6 +144,7 @@ const Gallery = () => {
             non aspernatur praesentium? Assumenda est, earum facere ipsa eius
             rem nisi atque.
           </Text>
+          <Price>$15.00</Price>
         </BoxG>
         <BoxG>
           <Pic src={Food5} alt="image5" />
@@ -160,6 +155,7 @@ const Gallery = () => {
             recusandae eaque magni eos consequatur similique, culpa in facere
             voluptatem. Ipsum, minima voluptatum?
           </Text>
+          <Price>$10.00</Price>
         </BoxG>
       </Slider>
     </Box>
