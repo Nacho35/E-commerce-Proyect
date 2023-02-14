@@ -73,6 +73,10 @@ export const Info2 = styled.div`
   display: grid;
   grid-column: 2/3;
   margin: auto;
+
+  @media (min-width: 1200px) {
+    margin-top: 2rem;
+  }
 `;
 
 export const Info3 = styled.div`
@@ -114,11 +118,6 @@ export const Icon = styled.img`
 
   @media (min-width: 360px) {
     width: 4rem;
-  }
-  @media (min-width: 776px) {
-  }
-
-  @media (min-width: 992px) {
   }
 
   @media (min-width: 1200px) {
@@ -193,6 +192,7 @@ export const Text = styled.p`
 
   @media (min-width: 1200px) {
     width: 70%;
+    font-size: larger;
   }
 `;
 

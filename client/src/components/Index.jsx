@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Gallery from "./Gallery";
 import Feature from "./Feature";
+import Banner from "./Banner";
 const index = () => {
   return (
     <Fragment>
@@ -10,6 +11,7 @@ const index = () => {
       <Home />
       <Gallery />
       <Feature />
+      <Banner />
     </Fragment>
   );
 };

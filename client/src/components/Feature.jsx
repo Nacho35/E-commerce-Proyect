@@ -58,7 +58,7 @@ const Feature = () => {
               <H3>Fresh ingredients</H3>
             </SPAN>
           </Info3>
-          <Vid width="100%" height="auto" autoPlay loop muted src={Resto}></Vid>
+          <Vid width="100%" height="auto" controls loop muted src={Resto}></Vid>
         </Box3>
       </Box2>
     </Box>
