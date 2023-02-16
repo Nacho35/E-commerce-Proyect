@@ -11,6 +11,34 @@ export const Box = styled.div`
   grid-template-rows: min-content 1fr 1fr;
   gap: 1rem;
   align-items: center;
+  overflow: hidden;
+
+  @media (min-width: 360px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 776px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content 1fr 1fr;
+    gap: 1rem;
+  }
 `;
 
 export const Box2 = styled.div`
@@ -75,9 +103,12 @@ export const Text = styled.p`
   display: flex;
   margin: auto;
 
+  @media (min-width: 776px) {
+    width: 60%;
+  }
   @media (min-width: 1200px) {
     width: 60%;
-    font-size: larger;
+    font-size: large;
   }
 `;
 
