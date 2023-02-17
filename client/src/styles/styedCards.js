@@ -113,7 +113,7 @@ export const Text = styled.p`
 `;
 
 export const Card = styled.figure`
-  transition: transform 0.5s ease-in-out;
+  transition: all 1s ease;
   filter: grayscale(80%);
 
   &:hover {
