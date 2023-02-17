@@ -101,6 +101,7 @@ export const Btn = styled.a`
   text-decoration: none;
   font-weight: bold;
   width: fit-content;
+  cursor: pointer;
 
   &:hover {
     color: var(--hover-text);
