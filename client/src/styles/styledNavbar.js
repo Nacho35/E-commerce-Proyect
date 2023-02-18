@@ -10,7 +10,7 @@ export const Nav = styled.nav`
   overflow-x: hidden;
   top: 0;
   position: fixed;
-  z-index: 999;
+  z-index: 9999;
 `;
 
 export const Box = styled.div`
@@ -79,7 +79,7 @@ export const A = styled.a`
   }
 
   @media (min-width: 1920px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -89,13 +89,12 @@ export const B = styled.a`
   text-align: center;
   color: ${colors.six};
   flex-direction: row;
-  margin-top: 12px;
   font-weight: 600;
-  margin-right: 1rem;
-  font-size: 1.7rem;
+  margin: auto;
+  font-size: 1.5rem;
 
   @media (min-width: 1024px) {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   &:hover {
@@ -105,25 +104,24 @@ export const B = styled.a`
 
 export const Logo = styled.img`
   width: 4rem;
-  height: 4rem;
+  height: auto;
   display: flex;
   justify-content: center;
   margin-right: 1rem;
-  margin-top: 1rem;
 `;
 
 export const SPAN = styled.span`
   display: flex;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   justify-content: center;
 
   @media (min-width: 1024px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   @media (min-width: 1920px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -143,26 +141,27 @@ export const Btn = styled.button`
 
 export const Boxburguer1 = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
 `;
 
 export const Boxburguer2 = styled.div`
-  flex-direction: column;
   background-color: ${colors.one};
   justify-content: space-between;
   display: flex;
   border-radius: 1rem;
+
+  @media (orientation: landscape) {
+    font-size: 0.5em;
+  }
 `;
 
 export const AB = styled.a`
   text-decoration: none;
   color: ${colors.six};
-  padding: 1rem;
-  font-size: 3rem;
+  margin: 1.5rem;
+  font-size: 3em;
   font-weight: 600;
-  margin-left: 1rem;
-  flex-direction: column;
+  margin-left: auto;
   display: flex;
   text-align: justify;
 
@@ -172,10 +171,10 @@ export const AB = styled.a`
 `;
 
 export const Cross = styled.svg`
-  padding-bottom: 40em;
-  padding-left: 1em;
+  margin-bottom: 40em;
+  margin-left: 1em;
   color: ${colors.six};
-  display: flex;
+  display: block;
   border: none;
 
   &:hover {
