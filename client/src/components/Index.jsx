@@ -6,6 +6,8 @@ import Feature from "./Feature";
 import Banner from "./Banner";
 import CardsContainer from "./CardsContainer";
 import FoodMenu from "./FoodMenu";
+import ImagesTier from "./ImagesTier";
+import Form from "./Form";
 const index = () => {
   return (
     <Fragment>
@@ -16,6 +18,8 @@ const index = () => {
       <Banner />
       <CardsContainer />
       <FoodMenu />
+      <ImagesTier />
+      <Form />
     </Fragment>
   );
 };
