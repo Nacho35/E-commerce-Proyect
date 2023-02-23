@@ -213,16 +213,16 @@ export const Reserved = styled.div`
   justify-content: center;
 
   @media (min-width: 360px) {
-    padding-top: 15rem;
+    padding-top: 16rem;
   }
   @media (min-width: 776px) {
-    padding-top: 25%;
+    padding-top: 16rem;
   }
   @media (min-width: 992px) {
-    padding-top: 20%;
+    padding-top: 15rem;
   }
   @media (min-width: 1200px) {
-    padding-top: 10rem;
+    padding-top: 12rem;
   }
 `;
 
