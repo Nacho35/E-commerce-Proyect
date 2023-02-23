@@ -8,6 +8,7 @@ import CardsContainer from "./CardsContainer";
 import FoodMenu from "./FoodMenu";
 import ImagesTier from "./ImagesTier";
 import Form from "./Form";
+import Footer from "./Footer";
 const index = () => {
   return (
     <Fragment>
@@ -20,6 +21,7 @@ const index = () => {
       <FoodMenu />
       <ImagesTier />
       <Form />
+      <Footer />
     </Fragment>
   );
 };

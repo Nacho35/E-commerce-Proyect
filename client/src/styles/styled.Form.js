@@ -7,6 +7,7 @@ export const Box = styled.div`
   width: auto;
   height: auto;
   overflow: hidden;
+  padding-bottom: 10%;
 `;
 
 export const Box2 = styled.div`
@@ -90,12 +91,25 @@ export const Tag = styled.label`
 
 export const Data = styled.input`
   background-color: ${colors.one};
-  height: 100%;
+  height: 70%;
   width: 100%;
   border: none;
   margin-right: 10rem;
   color: white;
   text-align: start;
+
+  @media (min-width: 360px) {
+    width: 80%;
+    padding: 1rem;
+  }
+  @media (min-width: 776px) {
+    width: 80%;
+    padding: 10px;
+  }
+  @media (min-width: 992px) {
+    width: 80%;
+    padding: 10px;
+  }
 `;
 
 export const Title = styled.h2`
