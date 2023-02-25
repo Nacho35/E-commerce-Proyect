@@ -199,3 +199,26 @@ export const Text = styled.p`
 export const Vid = styled.video`
   grid-column: 1/2;
 `;
+
+export const Boxvideo = styled.div`
+  display: flex;
+  align-self: center;
+  padding-bottom: 5rem;
+
+  @media (min-width: 360px) {
+    width: auto;
+    height: auto;
+  }
+  @media (min-width: 776px) {
+    width: auto;
+    height: auto;
+  }
+  @media (min-width: 992px) {
+    width: auto;
+    height: auto;
+  }
+  @media (min-width: 1200px) {
+    width: 75%;
+    height: auto;
+  }
+`;

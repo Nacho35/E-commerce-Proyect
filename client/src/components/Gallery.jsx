@@ -35,8 +35,8 @@ const Gallery = () => {
     customPaging: (i) => (
       <div
         style={{
-          width: "10px",
-          height: "10px",
+          width: "21px",
+          height: "21px",
           borderRadius: "50%",
           backgroundColor: "#ffcc33",
           display: "inline-block",

@@ -18,6 +18,7 @@ import {
   Icon,
   Vid,
   SPAN,
+  Boxvideo,
 } from "../styles/styledFeature";
 
 const Feature = () => {
@@ -58,7 +59,15 @@ const Feature = () => {
               <H3>Fresh ingredients</H3>
             </SPAN>
           </Info3>
-          <Vid width="100%" height="auto" controls loop muted src={Resto}></Vid>
+          <Boxvideo>
+            <Vid
+              width="100%"
+              height="auto"
+              controls
+              loop
+              muted
+              src={Resto}></Vid>
+          </Boxvideo>
         </Box3>
       </Box2>
     </Box>
