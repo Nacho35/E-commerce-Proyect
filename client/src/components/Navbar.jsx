@@ -41,12 +41,12 @@ const Navbar = () => {
 
   const menuAnimation = useSpring({
     opacity: isOpen ? 1 : 0,
-    height: isOpen ? "11%" : "0%",
+    height: isOpen ? "12%" : "0",
   });
 
   const boxAnimation = useSpring({
     opacity: isOpen ? 1 : 0,
-    width: isOpen ? "300px" : "0px",
+    width: isOpen ? "0px" : "0px",
   });
 
   return (

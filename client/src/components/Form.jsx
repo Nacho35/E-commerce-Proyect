@@ -104,10 +104,11 @@ const Form = () => {
         <BoxInfo>
           <TitleInfo>Opening Hours</TitleInfo>
           <TextInfo>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
-            inventore hic nulla, provident laudantium voluptate ipsa eligendi
-            commodi mollitia vero animi, repudiandae quidem minima est sint
-            sapiente quas iure deleniti.
+            At our restaurant, we're always ready to welcome you with open arms.
+            Our opening hours are very flexible, so we're sure you'll always
+            find a time to come and visit us. Moreover, we have highly trained
+            and friendly staff who are always willing to make your visit a
+            unique experience.
           </TextInfo>
           <Schedules>
             <Separate>Monday - Friday</Separate>

@@ -94,10 +94,9 @@ const Gallery = () => {
         </BoxT>
         <BoxP>
           <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
-            in? Rerum velit voluptatibus ex ipsa et beatae praesentium
-            consequuntur iste delectus voluptate voluptates iure quibusdam
-            dolore, natus, aliquam, impedit perferendis.
+            Welcome to our restaurant! Below are some of our most popular
+            dishes. Click through the carousel to see more details about each
+            one.
           </Text>
         </BoxP>
       </Box2>
@@ -106,10 +105,9 @@ const Gallery = () => {
           <Pic src={Food1} alt="image1" />
           <TitlePic>BURGER</TitlePic>
           <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto in
-            nemo aut inventore doloribus distinctio harum, itaque beatae alias
-            et velit praesentium, placeat sed voluptate deserunt. Corrupti
-            possimus quas repudiandae.
+            Our classic burger is made with 100% beef, topped with cheddar
+            cheese and served on a toasted sesame bun. Comes with a side of
+            crispy fries and our special burger sauce.
           </Text>
           <Price>$8.60</Price>
         </BoxG>
@@ -117,10 +115,9 @@ const Gallery = () => {
           <Pic src={Food2} alt="image2" />
           <TitlePic>PASTA</TitlePic>
           <Text>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam
-            corporis fugiat ab nisi accusantium nihil ut. Distinctio, eveniet
-            non cupiditate voluptas facere nesciunt nihil et amet culpa
-            reprehenderit eius. Ullam?
+            Our pasta dish is a customer favorite. Made with al dente penne
+            pasta, tossed in a rich tomato sauce with sautéed onions and garlic.
+            Topped with fresh basil and grated parmesan cheese.
           </Text>
           <Price>$11.30</Price>
         </BoxG>
@@ -128,10 +125,10 @@ const Gallery = () => {
           <Pic src={Food3} alt="image3" />
           <TitlePic>BEEF BURGER MEAL</TitlePic>
           <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-            dignissimos fuga facilis ducimus corporis impedit culpa, fugit, non
-            voluptate ullam odio quis sunt veritatis odit exercitationem
-            repellat quo illo amet.
+            Our beef burger meal is perfect for those with a big appetite. It
+            features two juicy beef patties, topped with crispy bacon and melted
+            cheddar cheese. Served with a side of sweet potato fries and a
+            refreshing coleslaw salad.
           </Text>
           <Price>$12.99</Price>
         </BoxG>
@@ -139,10 +136,10 @@ const Gallery = () => {
           <Pic src={Food4} alt="image4" />
           <TitlePic>DOUBLE CHEESE PIZZA</TitlePic>
           <Text>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro
-            pariatur ab, ratione inventore adipisci quae fugiat, nesciunt vero
-            non aspernatur praesentium? Assumenda est, earum facere ipsa eius
-            rem nisi atque.
+            Our double cheese pizza is a cheese-lover's dream. Made with a
+            crispy thin crust, our homemade tomato sauce, and topped with
+            generous amounts of mozzarella and cheddar cheese. Garnished with
+            fresh basil leaves.
           </Text>
           <Price>$15.00</Price>
         </BoxG>
@@ -150,10 +147,9 @@ const Gallery = () => {
           <Pic src={Food5} alt="image5" />
           <TitlePic>CEASER SALAD</TitlePic>
           <Text>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima
-            earum necessitatibus velit? Labore nam corrupti, facilis unde
-            recusandae eaque magni eos consequatur similique, culpa in facere
-            voluptatem. Ipsum, minima voluptatum?
+            Our Caesar salad is a refreshing and healthy choice. Made with crisp
+            Romaine lettuce, topped with shaved parmesan cheese, and our
+            homemade Caesar dressing. Served with a side of garlic bread.
           </Text>
           <Price>$10.00</Price>
         </BoxG>

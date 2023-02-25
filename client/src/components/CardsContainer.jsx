@@ -76,10 +76,16 @@ const CardsContainer = () => {
           <Title>Our best chef</Title>
         </Box3>
         <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-          temporibus quidem enim iste unde expedita laudantium pariatur vitae,
-          recusandae ratione ea nisi. Dolorum reiciendis sint non ipsa quos
-          neque nostrum?
+          Our restaurant is proud to feature some of the most talented and
+          creative chefs in the industry. Each one of our chefs brings their
+          unique style and culinary expertise to the table, ensuring that every
+          dish is not only delicious, but also beautifully presented. From the
+          selection of ingredients to the final plating, our chefs put their
+          heart and soul into every dish they create. We believe that the art of
+          cooking is not just about preparing food, but also about creating an
+          experience for our guests that they will never forget. Come taste the
+          creations of our best chefs and experience the culinary journey of a
+          lifetime.
         </Text>
       </Box2>
       {Cards.map((card, index) => {

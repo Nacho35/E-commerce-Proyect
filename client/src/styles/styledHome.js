@@ -49,24 +49,26 @@ export const SPAN = styled.span`
 
 export const BoxP = styled.div`
   display: block;
+  margin: auto;
 `;
 
 export const Text = styled.p`
   color: ${colors.six};
   font-size: 1rem;
   display: block;
-  text-align: left;
+  text-align: start;
   margin-bottom: 2rem;
 
   @media (min-width: 1200px) {
-    width: 30%;
+    width: 5%;
+    text-align: justify;
   }
 
   @media (min-width: 992px) {
     width: 30%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 776px) {
     width: 50%;
   }
 `;

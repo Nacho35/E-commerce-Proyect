@@ -98,17 +98,26 @@ export const Title = styled.h2`
 
 export const Text = styled.p`
   color: ${colors.six};
-  text-align: center;
+  text-align: justify;
   font-size: 1rem;
   display: flex;
-  margin: auto;
+  justify-self: center;
+  margin: 1rem;
 
   @media (min-width: 776px) {
-    width: 60%;
+    width: auto;
+    margin: 1rem;
   }
+
+  @media (min-width: 992px) {
+    width: auto;
+    margin: 1rem;
+  }
+
   @media (min-width: 1200px) {
-    width: 60%;
-    font-size: large;
+    width: 70%;
+    font-size: 1rem;
+    margin: 1rem;
   }
 `;
 

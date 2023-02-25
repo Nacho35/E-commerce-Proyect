@@ -232,4 +232,5 @@ export const Copy = styled.h5`
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
+  margin: 1rem;
 `;

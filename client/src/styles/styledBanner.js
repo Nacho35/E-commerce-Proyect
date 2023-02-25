@@ -52,7 +52,8 @@ export const Title = styled.h2`
   font-size: 2.3rem;
 
   @media (min-width: 360px) {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    text-align: start;
   }
 
   @media (min-width: 776px) {

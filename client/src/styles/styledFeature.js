@@ -72,11 +72,7 @@ export const Info1 = styled.div`
 export const Info2 = styled.div`
   display: grid;
   grid-column: 2/3;
-  margin: auto;
-
-  @media (min-width: 1200px) {
-    margin-top: 2rem;
-  }
+  margin: 1.5rem;
 `;
 
 export const Info3 = styled.div`
@@ -185,30 +181,29 @@ export const I = styled.img`
 
 export const Text = styled.p`
   color: ${colors.six};
-  text-align: center;
+  text-align: justify;
   font-size: 1rem;
   display: flex;
   margin: auto;
 
   @media (min-width: 1200px) {
     width: 70%;
-    font-size: larger;
+    font-size: 1rem;
+    text-align: justify;
   }
 `;
 
-export const Vid = styled.video`
+export const Image = styled.img`
   grid-column: 1/2;
+  width: 100%;
+  height: 100%;
 `;
 
-export const Boxvideo = styled.div`
+export const Boximage = styled.div`
   display: flex;
   align-self: center;
   padding-bottom: 5rem;
 
-  @media (min-width: 360px) {
-    width: auto;
-    height: auto;
-  }
   @media (min-width: 776px) {
     width: auto;
     height: auto;
@@ -218,7 +213,7 @@ export const Boxvideo = styled.div`
     height: auto;
   }
   @media (min-width: 1200px) {
-    width: 75%;
+    width: auto;
     height: auto;
   }
 `;
