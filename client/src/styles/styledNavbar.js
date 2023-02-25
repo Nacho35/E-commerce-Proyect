@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "./Theme";
+import { animated } from "@react-spring/web";
 
 export const Nav = styled.nav`
   background-color: ${colors.one};
@@ -125,10 +126,21 @@ export const SPAN = styled.span`
   }
 `;
 
-export const Btn = styled.button`
-  background-color: transparent;
-  border: none;
+export const Btn = styled(animated.button)`
+  background-color: ${colors.ten};
+  border-radius: 10px;
+  border: solid;
+  border-color: transparent;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-bottom: auto;
+
+  @media (orientation: landscape) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: auto;
+  }
 
   @media (min-width: 992px) {
     display: none;
@@ -141,51 +153,61 @@ export const Btn = styled.button`
 
 export const Boxburguer1 = styled.div`
   display: flex;
-  justify-content: center;
+  justify-items: center;
+  margin: 10px;
 `;
 
-export const Boxburguer2 = styled.div`
+export const Boxburguer2 = styled(animated.div)`
   background-color: ${colors.one};
-  justify-content: space-between;
+  position: static;
+  height: auto;
+  width: auto;
   display: flex;
-  border-radius: 1rem;
-
-  @media (orientation: landscape) {
-    font-size: 0.5em;
-  }
+  align-items: flex-start;
+  box-sizing: border-box;
 `;
 
-export const AB = styled.a`
+export const AB = styled(animated.a)`
   text-decoration: none;
   color: ${colors.six};
-  margin: 1.5rem;
+  margin: 1.2rem;
   font-size: 3em;
   font-weight: 600;
-  margin-left: auto;
   display: flex;
-  text-align: justify;
+  text-align: start;
 
   &:hover {
     color: ${colors.ten};
+  }
+
+  @media (min-width: 360px) {
+    margin-left: auto;
+    margin-right: auto;
+    @media (orientation: landscape) {
+      font-size: 1.8em;
+      margin-top: auto;
+      margin-right: 1.5rem;
+    }
   }
 `;
 
 export const Cross = styled.svg`
-  margin-bottom: 40em;
-  margin-left: 1em;
-  color: ${colors.six};
-  display: block;
-  border: none;
+  color: ${colors.one};
+  background-color: transparent;
+  border-radius: 10px;
+  border: solid;
+  border-color: transparent;
+  cursor: pointer;
 
   &:hover {
-    color: ${colors.ten};
+    color: ${colors.six};
   }
 `;
 
 export const Bars = styled.svg`
-  color: ${colors.six};
+  color: ${colors.one};
 
   &:hover {
-    color: ${colors.ten};
+    color: ${colors.six};
   }
 `;
