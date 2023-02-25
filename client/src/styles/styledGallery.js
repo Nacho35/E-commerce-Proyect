@@ -6,6 +6,7 @@ export const Box = styled.div`
   height: auto;
   background-color: ${colors.one};
   overflow-x: hidden;
+  padding-bottom: 4rem;
 `;
 
 export const Box2 = styled.div`
@@ -17,6 +18,7 @@ export const Box2 = styled.div`
 export const BoxP = styled.div`
   display: flex;
   margin: auto;
+  justify-content: center;
 
   @media (min-width: 1200px) {
     width: 50%;
@@ -94,11 +96,15 @@ export const Text = styled.p`
   color: ${colors.six};
   text-align: center;
   font-size: 1rem;
-  display: block;
+  display: flex;
+  padding-bottom: 1rem;
+  text-align: center;
+  margin: 1rem;
 `;
 
 export const BoxG = styled.div`
   display: flex;
+  outline: none;
 `;
 
 export const Pic = styled.img`

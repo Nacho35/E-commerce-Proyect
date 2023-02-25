@@ -190,21 +190,22 @@ export const Text = styled.h4`
   color: ${colors.six};
   text-align: center;
   font-size: 1rem;
-  display: block;
+  display: flex;
+  margin: 1rem;
 
   @media (min-width: 776px) {
-    width: 60%;
-    margin: auto;
+    width: auto;
+    margin: 1rem;
   }
 
   @media (min-width: 992px) {
-    width: 60%;
-    margin: auto;
+    width: auto;
+    margin: 1rem;
   }
 
   @media (min-width: 1200px) {
-    width: 60%;
-    margin: auto;
+    width: auto;
+    margin: 1.5rem;
   }
 `;
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Resto from "../assets/restorant.mp4";
+import Resto from "../assets/restorant.jpg";
 import Food from "../assets/food.svg";
 import Chef from "../assets/advantage-1.svg";
 import Menu from "../assets/advantage-2.svg";
@@ -16,8 +16,9 @@ import {
   I,
   H3,
   Icon,
-  Vid,
   SPAN,
+  Boximage,
+  Image,
 } from "../styles/styledFeature";
 
 const Feature = () => {
@@ -31,17 +32,23 @@ const Feature = () => {
           </Info1>
           <Info2>
             <Text>
-              Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Itaque
-              dolore nisi ipsa neque? Dolorem incidunt fugiat temporibus animi
-              nobis, vero expedita voluptate dignissimos officiis quis pariatur
-              earum voluptas quia sed. Lorem ipsum, dolor sit amet, consectetur
-              adipisicing elit. Itaque dolore nisi ipsa neque? Dolorem incidunt
-              fugiat temporibus animi nobis, vero expedita voluptate dignissimos
-              officiis quis pariatur earum voluptas quia sed. Lorem ipsum, dolor
-              sit amet, consectetur adipisicing elit. Itaque dolore nisi ipsa
-              neque? Dolorem incidunt fugiat temporibus animi nobis, vero
-              expedita voluptate dignissimos officiis quis pariatur earum
-              voluptas quia sed.
+              At our restaurant, we pride ourselves on offering a unique dining
+              experience that combines exceptional food with a warm and
+              welcoming atmosphere. From the moment you step through our doors,
+              you will be greeted by friendly staff who are committed to
+              providing you with the highest level of service. Our menu is
+              carefully crafted to showcase the freshest ingredients and bold
+              flavors, with a range of dishes to suit all tastes and dietary
+              requirements. Whether you are looking for classic comfort food or
+              something more adventurous, our talented chefs are always
+              experimenting with new and exciting flavor combinations. We also
+              offer an extensive selection of wines, beers, and cocktails to
+              complement your meal, along with a range of non-alcoholic options.
+              And with our cozy ambiance and stylish decor, our restaurant is
+              the perfect place to relax and enjoy a memorable dining experience
+              with friends and family. So come and join us for a meal today and
+              discover why we are one of the most popular restaurants in the
+              area!
             </Text>
           </Info2>
           <Info3>
@@ -58,7 +65,9 @@ const Feature = () => {
               <H3>Fresh ingredients</H3>
             </SPAN>
           </Info3>
-          <Vid width="100%" height="auto" controls loop muted src={Resto}></Vid>
+          <Boximage>
+            <Image src={Resto} alt="restorant" />
+          </Boximage>
         </Box3>
       </Box2>
     </Box>

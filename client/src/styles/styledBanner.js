@@ -10,6 +10,19 @@ export const Box = styled.div`
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+
+  @media (min-width: 360px) {
+    background-attachment: scroll;
+  }
+  @media (min-width: 776px) {
+    background-attachment: scroll;
+  }
+  @media (min-width: 992px) {
+    background-attachment: scroll;
+  }
+  @media (min-width: 1200px) {
+    background-attachment: fixed;
+  }
 `;
 
 export const Box2 = styled.div`
@@ -39,7 +52,8 @@ export const Title = styled.h2`
   font-size: 2.3rem;
 
   @media (min-width: 360px) {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    text-align: start;
   }
 
   @media (min-width: 776px) {
