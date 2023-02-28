@@ -51,7 +51,7 @@ export const I = styled.img`
 export const Title = styled.h2`
   color: ${colors.six};
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   display: flex;
   justify-content: center;
 `;

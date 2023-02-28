@@ -12,6 +12,8 @@ export const Box = styled.div`
   gap: 1rem;
   align-items: center;
   overflow: hidden;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
 
   @media (min-width: 360px) {
     display: flex;
@@ -91,7 +93,7 @@ export const Icon = styled.img`
 export const Title = styled.h2`
   color: ${colors.six};
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   display: flex;
   justify-content: center;
 `;

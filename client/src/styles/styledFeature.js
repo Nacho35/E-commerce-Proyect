@@ -8,6 +8,8 @@ export const Box = styled.div`
   background-image: url(${Pattern});
   display: flex;
   overflow-x: hidden;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
 `;
 
 export const Box2 = styled.div`
@@ -136,7 +138,7 @@ export const Title = styled.h2`
   color: ${colors.six};
   text-align: center;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   display: flex;
   justify-content: center;
 `;
