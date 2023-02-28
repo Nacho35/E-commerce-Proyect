@@ -6,7 +6,7 @@ import {
   Box,
   Box1,
   Box2,
-  A,
+  Links,
   B,
   SPAN,
   Btn,
@@ -54,38 +54,38 @@ const Navbar = () => {
       <Box>
         <Box1 style={{ display: isOpen ? "none" : "flex" }}>
           <Logo src={Image} alt="logo" />
-          <B href="">
+          <B to="/">
             SARGIOTTI'S <SPAN>Restaurant</SPAN>
           </B>
         </Box1>
         <Box2 style={{ display: isOpen ? "none" : "flex" }}>
-          <A href="">HOME</A>
-          <A href="">ABOUT US</A>
-          <A href="">CHEFS</A>
-          <A href="">MENU</A>
-          <A href="">GALLERY</A>
-          <A href="">CONTACTS</A>
+          <Links to="/home">HOME</Links>
+          <Links to="/about">ABOUT US</Links>
+          <Links to="/chef">CHEFS</Links>
+          <Links to="/menu">MENU</Links>
+          <Links to="/gallery">GALLERY</Links>
+          <Links to="/contact">CONTACTS</Links>
         </Box2>
       </Box>
       <Boxburguer1>
         <Boxburguer2
           style={(boxAnimation, { display: isOpen ? "block" : "none" })}>
-          <AB style={menuAnimation} href="">
+          <AB style={menuAnimation} to="/home">
             HOME
           </AB>
-          <AB style={menuAnimation} href="">
+          <AB style={menuAnimation} to="/about">
             ABOUT US
           </AB>
-          <AB style={menuAnimation} href="">
+          <AB style={menuAnimation} to="/chef">
             CHEFS
           </AB>
-          <AB style={menuAnimation} href="">
+          <AB style={menuAnimation} to="/menu">
             MENU
           </AB>
-          <AB style={menuAnimation} href="">
+          <AB style={menuAnimation} to="/gallery">
             GALLERY
           </AB>
-          <AB style={menuAnimation} href="">
+          <AB style={menuAnimation} to="/contact">
             CONTACTS
           </AB>
         </Boxburguer2>
@@ -102,9 +102,9 @@ const Navbar = () => {
               fill="none">
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 6H20M4 12H20M4 18H20"
               />
             </Bars>
@@ -117,9 +117,9 @@ const Navbar = () => {
               xmlns="http://www.w3.org/2000/svg">
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1"
                 d="M4.293,18.293,10.586,12,4.293,5.707A1,1,0,0,1,5.707,4.293L12,10.586l6.293-6.293a1,1,0,1,1,1.414,1.414L13.414,12l6.293,6.293a1,1,0,1,1-1.414,1.414L12,13.414,5.707,19.707a1,1,0,0,1-1.414-1.414Z"
               />
             </Cross>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { colors } from "./Theme";
 import { animated } from "@react-spring/web";
+import { NavLink } from "react-router-dom";
 
 export const Nav = styled.nav`
   background-color: ${colors.one};
@@ -44,7 +45,7 @@ export const Box2 = styled.div`
   padding: 0.5rem;
 `;
 
-export const A = styled.a`
+export const Links = styled(NavLink)`
   text-decoration: none;
   color: ${colors.six};
   padding: 1rem;
@@ -84,7 +85,7 @@ export const A = styled.a`
   }
 `;
 
-export const B = styled.a`
+export const B = styled(NavLink)`
   text-decoration: none;
   display: block;
   text-align: center;
@@ -167,7 +168,7 @@ export const Boxburguer2 = styled(animated.div)`
   box-sizing: border-box;
 `;
 
-export const AB = styled(animated.a)`
+export const AB = styled(animated(NavLink))`
   text-decoration: none;
   color: ${colors.six};
   margin: 1.2rem;

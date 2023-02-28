@@ -6,6 +6,8 @@ export const Box = styled.div`
   width: auto;
   height: auto;
   overflow: hidden;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
 `;
 
 export const Box2 = styled.div`
@@ -51,7 +53,7 @@ export const I = styled.img`
 export const Title = styled.h2`
   color: ${colors.six};
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   display: flex;
   justify-content: center;
 `;
