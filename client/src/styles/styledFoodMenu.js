@@ -20,7 +20,7 @@ export const Box2 = styled.div`
 export const Box3 = styled.div`
   display: flex;
   justify-content: center;
-  padding: 1.5rem;
+  padding-bottom: 2rem;
 
   @media (min-width: 360px) {
     display: flex;
