@@ -1,5 +1,5 @@
 import React from "react";
-import FoodMenu from "./FoodMenu";
+import Form from "./Form";
 import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
@@ -39,7 +39,7 @@ const themes = {
 	dark: darkTheme,
 };
 
-const Parent4 = () => {
+const Parent7 = () => {
 	const [theme, setTheme] = useState(
 		() => window.localStorage.getItem("theme") || "light"
 	);
@@ -58,9 +58,9 @@ const Parent4 = () => {
 	return (
 		<ThemeProvider theme={themes[theme]}>
 			<Navbar toggleTheme={toggleTheme} />
-			<FoodMenu />
+			<Form />
 		</ThemeProvider>
 	);
 };
 
-export default Parent4;
+export default Parent7;
