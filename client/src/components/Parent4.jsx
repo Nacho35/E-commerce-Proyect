@@ -1,14 +1,66 @@
 import React from "react";
 import FoodMenu from "./FoodMenu";
 import Navbar from "./Navbar";
+import { useState, useEffect } from "react";
+import { ThemeProvider } from "styled-components";
+import BgImageDark from "../assets/bg-pattern.jpg";
+import BgImageLight from "../assets/bg-light.jpg";
+import BgImageLight2 from "../assets/bg-light2.jpg";
+import BgDark from "../assets/bg-header.png";
+import BgBanner from "../assets/bg-offer.png";
+import BgBanner2 from "../assets/bg-offer2.jpg";
+
+const lightTheme = {
+	body: "#F0F0F0",
+	text: "#222222",
+	text2: "#0072BB",
+	hover: "#0072BB",
+	button: "#0072BB",
+	backgroundImage: `url(${BgImageLight2})`,
+	backgroundImage2: `url(${BgImageLight2})`,
+	backgroundImage3: `url(${BgImageLight})`,
+	backgroundBanner: `url(${BgBanner2})`,
+};
+
+const darkTheme = {
+	body: "#222222",
+	text: "#F0F0F0",
+	text2: "#ffcc33",
+	hover: "#ffcc33",
+	button: "#ffcc33",
+	backgroundImage: `url(${BgImageDark})`,
+	backgroundImage2: `url(${BgImageDark})`,
+	backgroundImage3: `url(${BgDark})`,
+	backgroundBanner: `url(${BgBanner})`,
+};
+
+const themes = {
+	light: lightTheme,
+	dark: darkTheme,
+};
 
 const Parent4 = () => {
-  return (
-    <div>
-      <Navbar />
-      <FoodMenu />
-    </div>
-  );
+	const [theme, setTheme] = useState(
+		() => window.localStorage.getItem("theme") || "light"
+	);
+
+	useEffect(() => {
+		const storedTheme = localStorage.getItem("theme");
+		if (storedTheme) {
+			setTheme(storedTheme);
+		}
+	}, []);
+	const toggleTheme = () => {
+		const newTheme = theme === "light" ? "dark" : "light";
+		setTheme(newTheme);
+		localStorage.setItem("theme", newTheme);
+	};
+	return (
+		<ThemeProvider theme={themes[theme]}>
+			<Navbar toggleTheme={toggleTheme} />
+			<FoodMenu />
+		</ThemeProvider>
+	);
 };
 
 export default Parent4;

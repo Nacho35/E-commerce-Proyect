@@ -32,7 +32,7 @@ const Home = () => {
               us and taste the best of gastronomy at our restaurant!
             </Text>
           </BoxP>
-          <Btn type="button" href="">
+          <Btn type="button" to="/form">
             BOOK A TABLE
           </Btn>
         </Box3>
