@@ -5,7 +5,7 @@ export const Box = styled.div`
 	height: auto;
 	background-color: ${(props) => props.theme.body};
 	background-image: ${(props) => props.theme.backgroundImage2};
-	background-size: cover;
+	background-size: auto;
 	display: flex;
 	overflow-x: hidden;
 	padding-top: 5rem;

@@ -38,7 +38,7 @@ const Gallery = () => {
 					width: "21px",
 					height: "21px",
 					borderRadius: "10px",
-					backgroundColor: "#b0bec5",
+					backgroundColor: "#f9430a",
 					display: "inline-block",
 					alignItems: "center",
 				}}>

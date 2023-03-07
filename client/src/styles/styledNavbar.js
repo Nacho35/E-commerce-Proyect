@@ -108,14 +108,6 @@ export const B = styled(NavLink)`
 	}
 `;
 
-export const Logo = styled.img`
-	width: 4rem;
-	height: auto;
-	display: flex;
-	justify-content: center;
-	margin-right: 1rem;
-`;
-
 export const SPAN = styled.span`
 	display: flex;
 	font-weight: 600;
@@ -220,12 +212,16 @@ export const Bars = styled.svg`
 export const BoxB = styled.div`
 	display: flex;
 	justify-content: center;
+	padding-right: 10px;
+	margin: 10px;
 `;
 
 export const Modebtn = styled.button`
-	border: none;
-	border-bottom: 0;
-	border-radius: none;
-	cursor: pointer;
 	background-color: transparent;
+	border-radius: 10px;
+	border: solid;
+	border-color: transparent;
+	cursor: pointer;
+	width: auto;
+	height: auto;
 `;

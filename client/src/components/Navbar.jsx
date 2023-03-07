@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Image from "../assets/food-dinner.svg";
 import { useSpring } from "@react-spring/web";
 import Mode from "../assets/mode.svg";
 import Mode2 from "../assets/mode2.svg";
@@ -17,7 +16,6 @@ import {
 	AB,
 	Cross,
 	Bars,
-	Logo,
 	Modebtn,
 	BoxB,
 } from "../styles/styledNavbar";
@@ -73,7 +71,6 @@ const Navbar = (props) => {
 							<img src={svg === "Mode" ? Mode : Mode2} alt="icon" />
 						</Modebtn>
 					</BoxB>
-					<Logo src={Image} alt="logo" />
 					<B to="/">
 						SARGIOTTI'S <SPAN>Restaurant</SPAN>
 					</B>
