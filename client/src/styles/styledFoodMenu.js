@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Box = styled.div`
 	background-color: ${(props) => props.theme.body};
 	background-image: ${(props) => props.theme.backgroundImage2};
-	background-size: contain;
+	background-size: auto;
 	width: auto;
 	height: auto;
 	overflow: hidden;
@@ -148,6 +148,7 @@ export const BoxImg = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding: 1rem;
 `;
 
 export const Img = styled.img`
@@ -186,28 +187,32 @@ export const TitleImg = styled.h3`
 	text-align: center;
 	text-transform: uppercase;
 	font-size: 1rem;
+	margin: 1rem;
 `;
 
 export const Text = styled.h4`
 	color: ${(props) => props.theme.text};
 	text-align: center;
 	font-size: 1rem;
-	display: flex;
+	display: block;
 	margin: 1rem;
 
 	@media (min-width: 776px) {
 		width: auto;
+		height: auto;
 		margin: 1rem;
 	}
 
 	@media (min-width: 992px) {
 		width: auto;
+		height: auto;
 		margin: 1rem;
 	}
 
 	@media (min-width: 1200px) {
 		width: auto;
-		margin: 1.5rem;
+		height: auto;
+		margin: 1rem;
 	}
 `;
 
@@ -217,4 +222,35 @@ export const Price = styled.h5`
 	justify-content: center;
 	font-weight: 900;
 	font-size: large;
+	margin: 1.5rem;
+`;
+
+export const Btn2 = styled.button`
+	--bg: ${(props) => props.theme.button};
+	--hover-bg: #000;
+	--hover-text: #fff;
+	color: #000;
+	border: 1px solid var(--bg);
+	border-radius: 4px;
+	padding: 0.8em 2em;
+	background: var(--bg);
+	transition: 0.2s;
+	text-decoration: none;
+	font-weight: bold;
+	width: fit-content;
+	cursor: pointer;
+	align-self: center;
+	margin: 1.5rem;
+
+	&:hover {
+		color: var(--hover-text);
+		transform: translate(-0.25rem, -0.25rem);
+		background: var(--hover-bg);
+		box-shadow: 0.25rem 0.25rem var(--bg);
+	}
+
+	&:active {
+		transform: translate(0);
+		box-shadow: none;
+	}
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Box = styled.div`
 	background-color: ${(props) => props.theme.body};
 	background-image: ${(props) => props.theme.backgroundImage2};
-	background-size: cover;
+	background-size: auto;
 	width: auto;
 	height: auto;
 	overflow: hidden;
