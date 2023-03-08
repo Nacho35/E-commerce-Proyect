@@ -42,6 +42,16 @@ import {
 	Title,
 	TitleImg,
 } from "../styles/styledFoodMenu";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+	duration: 3000,
+	easing: "ease",
+	delay: 100,
+	once: true,
+	mirror: true,
+});
 
 const FoodMenu = () => {
 	const images = [
@@ -245,11 +255,11 @@ const FoodMenu = () => {
 
 	return (
 		<Box>
-			<Box2>
+			<Box2 data-aos="fade-up">
 				<I src={Icon} alt="icon" />
 				<Title>Our Menu</Title>
 			</Box2>
-			<Box3>
+			<Box3 data-aos="fade-down">
 				<BoxBtn>
 					<Btn type="button" onClick={() => setProductType("all")}>
 						ALL
@@ -297,7 +307,7 @@ const FoodMenu = () => {
 						(image) => productType === "all" || image.type === productType
 					)
 					.map((image, index) => (
-						<BoxImg key={index}>
+						<BoxImg data-aos="flip-left" key={index}>
 							<Img src={image.src} alt="" />
 							<TitleImg>{image.title}</TitleImg>
 							<Text>{image.description}</Text>
