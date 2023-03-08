@@ -19,6 +19,16 @@ import Food2 from "../assets/special-dishes-2.jpg";
 import Food3 from "../assets/special-dishes-3.jpg";
 import Food4 from "../assets/special-dishes-4.jpg";
 import Food5 from "../assets/special-dishes-5.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+	duration: 3000,
+	easing: "ease",
+	delay: 100,
+	once: true,
+	mirror: true,
+});
 
 const Gallery = () => {
 	const settings = {
@@ -88,11 +98,11 @@ const Gallery = () => {
 	return (
 		<Box>
 			<Box2>
-				<BoxT>
+				<BoxT data-aos="fade-up">
 					<Icon src={RestFood} alt="icon" />
 					<Title>Our Special Dishes</Title>
 				</BoxT>
-				<BoxP>
+				<BoxP data-aos="fade-up">
 					<Text>
 						Welcome to our restaurant! Below are some of our most popular
 						dishes. Click through the carousel to see more details about each
@@ -101,7 +111,7 @@ const Gallery = () => {
 				</BoxP>
 			</Box2>
 			<Slider {...settings}>
-				<BoxG>
+				<BoxG data-aos="flip-right">
 					<Pic src={Food1} alt="image1" />
 					<TitlePic>BURGER</TitlePic>
 					<Text>
@@ -111,7 +121,7 @@ const Gallery = () => {
 					</Text>
 					<Price>$8.60</Price>
 				</BoxG>
-				<BoxG>
+				<BoxG data-aos="flip-right">
 					<Pic src={Food2} alt="image2" />
 					<TitlePic>PASTA</TitlePic>
 					<Text>
@@ -121,7 +131,7 @@ const Gallery = () => {
 					</Text>
 					<Price>$11.30</Price>
 				</BoxG>
-				<BoxG>
+				<BoxG data-aos="flip-right">
 					<Pic src={Food3} alt="image3" />
 					<TitlePic>BEEF BURGER MEAL</TitlePic>
 					<Text>
@@ -132,7 +142,7 @@ const Gallery = () => {
 					</Text>
 					<Price>$12.99</Price>
 				</BoxG>
-				<BoxG>
+				<BoxG data-aos="flip-right">
 					<Pic src={Food4} alt="image4" />
 					<TitlePic>DOUBLE CHEESE PIZZA</TitlePic>
 					<Text>
@@ -143,7 +153,7 @@ const Gallery = () => {
 					</Text>
 					<Price>$15.00</Price>
 				</BoxG>
-				<BoxG>
+				<BoxG data-aos="flip-right">
 					<Pic src={Food5} alt="image5" />
 					<TitlePic>CEASER SALAD</TitlePic>
 					<Text>
