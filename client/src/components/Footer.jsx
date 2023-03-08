@@ -34,19 +34,19 @@ AOS.init({
 	duration: 3000,
 	easing: "ease",
 	delay: 100,
-	once: true,
+	once: false,
 	mirror: true,
 });
 
 const Footer = () => {
 	return (
 		<Box>
-			<Box2 data-aos="fade-up">
+			<Box2 data-aos="fade-down">
 				<I src={Icon} alt="icon" />
 				<Title>Contacts</Title>
 			</Box2>
 			<Box3>
-				<Box4 data-aos="fade-down">
+				<Box4 data-aos="fade-right">
 					<InnerBox>
 						<InsideBox>
 							<IC src={location} alt="icon" />
@@ -75,7 +75,7 @@ const Footer = () => {
 						</InsideBox2>
 					</InnerBox>
 				</Box4>
-				<InnerBox2 data-aos="fade-down">
+				<InnerBox2 data-aos="fade-left">
 					<a
 						href="https://www.facebook.com/"
 						target="_blank"
@@ -104,7 +104,7 @@ const Footer = () => {
 			</Box3>
 			<BoxMap>
 				<Map
-					data-aos="zoom-in"
+					data-aos="fade-up"
 					src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d10417.605268696248!2d-94.55576890907439!3d39.079775366589345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRestaurantes!5e0!3m2!1ses-419!2sar!4v1677021409261!5m2!1ses-419!2sar"
 					allowfullscreen=""
 					loading="lazy"
