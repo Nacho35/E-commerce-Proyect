@@ -44,6 +44,7 @@ import {
 } from "../styles/styledFoodMenu";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import agregarProductoAlCarrito from "./Cart";
 
 AOS.init({
 	duration: 3000,
@@ -311,7 +312,11 @@ const FoodMenu = () => {
 							<Img src={image.src} alt="" />
 							<TitleImg>{image.title}</TitleImg>
 							<Text>{image.description}</Text>
-							<Btn2 type="button">To Order</Btn2>
+							<Btn2
+								type="button"
+								onClick={() => agregarProductoAlCarrito(image.id)}>
+								To Order
+							</Btn2>
 							<Price>{image.price}</Price>
 						</BoxImg>
 					))}
