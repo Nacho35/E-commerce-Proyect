@@ -150,8 +150,7 @@ export const Btn = styled(animated.button)`
 
 export const Boxburguer1 = styled.div`
 	display: flex;
-	justify-items: center;
-	margin: 10px;
+	align-self: center;
 `;
 
 export const Boxburguer2 = styled(animated.div)`
@@ -212,8 +211,8 @@ export const Bars = styled.svg`
 export const BoxB = styled.div`
 	display: flex;
 	justify-content: center;
-	padding-right: 10px;
-	margin: 10px;
+	margin-left: 1.5rem;
+	padding: 10px;
 `;
 
 export const Modebtn = styled.button`
@@ -224,4 +223,33 @@ export const Modebtn = styled.button`
 	cursor: pointer;
 	width: auto;
 	height: auto;
+`;
+
+export const Cartbox = styled.div`
+	position: absolute;
+	top: auto;
+	width: 100%;
+	height: auto;
+	margin-right: 1rem;
+	align-self: center;
+
+	@media (min-width: 360px) {
+		margin-right: 1.5rem;
+		align-self: baseline;
+	}
+
+	@media (min-width: 776px) {
+		margin-right: auto;
+		align-self: baseline;
+	}
+
+	@media (min-width: 992px) {
+		margin-right: auto;
+		align-self: baseline;
+	}
+
+	@media (min-width: 1200px) {
+		margin-right: auto;
+		align-self: baseline;
+	}
 `;

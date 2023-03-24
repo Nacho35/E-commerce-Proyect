@@ -27,7 +27,7 @@ const Home = () => {
 			<Box2>
 				<Box3 data-aos="fade-right">
 					<Title>
-						BEST QUALITY <SPAN>FOOD</SPAN>{" "}
+						BEST QUALITY <SPAN>FOOD</SPAN>
 					</Title>
 					<BoxP>
 						<Text>

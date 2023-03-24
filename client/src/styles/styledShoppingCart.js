@@ -19,7 +19,8 @@ export const Box2 = styled(animated.div)`
 	display: flex;
 	align-items: flex-start;
 	box-sizing: border-box;
-	padding: 1rem;
+	border-radius: 10px;
+	padding: 10px;
 `;
 
 export const CartButton = styled(animated.button)`
@@ -38,16 +39,10 @@ export const Icons = styled.img`
 	height: 43px;
 `;
 
-export const Box3 = styled.div`
+export const Innerbox = styled.div`
 	width: auto;
 	height: auto;
 	display: flex;
-`;
-
-export const Innerbox = styled.aside`
-	width: auto;
-	height: auto;
-	display: block;
 	flex-direction: column;
 	justify-content: center;
 `;
@@ -81,6 +76,7 @@ export const Btn = styled(animated.button)`
 	font-weight: bold;
 	width: fit-content;
 	cursor: pointer;
+	margin: 10px;
 
 	&:hover {
 		color: var(--hover-text);
@@ -95,4 +91,28 @@ export const Btn = styled(animated.button)`
 	}
 `;
 
-export const List = styled.ul``;
+export const List = styled.div`
+	display: flex;
+	align-content: center;
+	flex-direction: column;
+	width: auto;
+	max-height: 35rem;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	@media (min-width: 1200px) {
+		@media (orientation: landscape) {
+			display: flex;
+			flex: auto;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			gap: 1rem;
+		}
+	}
+`;
+
+export const Boxbtn = styled.div`
+	margin: auto;
+	display: flex;
+	justify-content: center;
+`;

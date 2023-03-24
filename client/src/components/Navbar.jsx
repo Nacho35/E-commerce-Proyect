@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSpring } from "@react-spring/web";
 import Mode from "../assets/mode.svg";
 import Mode2 from "../assets/mode2.svg";
-import Cart from "./Cart";
+import ShoppingCart from "./ShoppingCart";
 import {
 	Nav,
 	Box,
@@ -19,6 +19,7 @@ import {
 	Bars,
 	Modebtn,
 	BoxB,
+	Cartbox,
 } from "../styles/styledNavbar";
 
 const Navbar = (props) => {
@@ -144,9 +145,9 @@ const Navbar = (props) => {
 					)}
 				</Btn>
 			</Boxburguer1>
-			<div id="cart-container">
-				<Cart />
-			</div>
+			<Cartbox id="cart-container">
+				<ShoppingCart />
+			</Cartbox>
 		</Nav>
 	);
 };
