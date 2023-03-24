@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSpring } from "@react-spring/web";
 import Mode from "../assets/mode.svg";
 import Mode2 from "../assets/mode2.svg";
+import ShoppingCart from "./ShoppingCart";
 import {
 	Nav,
 	Box,
@@ -18,6 +19,7 @@ import {
 	Bars,
 	Modebtn,
 	BoxB,
+	Cartbox,
 } from "../styles/styledNavbar";
 
 const Navbar = (props) => {
@@ -59,7 +61,7 @@ const Navbar = (props) => {
 
 	const boxAnimation = useSpring({
 		opacity: isOpen ? 1 : 0,
-		width: isOpen ? "0px" : "0px",
+		width: isOpen ? "100%" : "0%",
 	});
 
 	return (
@@ -143,6 +145,9 @@ const Navbar = (props) => {
 					)}
 				</Btn>
 			</Boxburguer1>
+			<Cartbox id="cart-container">
+				<ShoppingCart />
+			</Cartbox>
 		</Nav>
 	);
 };
