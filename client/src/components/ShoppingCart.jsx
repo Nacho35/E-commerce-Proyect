@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import { useSpring } from "@react-spring/web";
 import {
 	Box,
@@ -18,16 +18,59 @@ import { reducerCart, productsInitialState } from "../reducer/shoppingReducer";
 import ProductItem from "../components/ProductItem";
 import TYPES from "../actions/shoppingAction";
 import ShoppingCartProduct from "./ShoppingCartProduct";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 const ShoppingCart = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [state, dispatch] = useReducer(reducerCart, productsInitialState);
+	const [products, setProducts] = useState([]);
+	const [cartItems, setCartItems] = useState([]);
 
-	const addToCart = (id) => {
-		dispatch({
-			type: TYPES.ADD_TO_CART,
-			payload: id,
-		});
+	useEffect(() => {
+		axios
+			.get("http://localhost:3001/products")
+			.then((response) => {
+				setProducts(response.data);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	}, []);
+
+	const addToCart = (productId) => {
+		console.log("addToCart productId:", productId);
+		const itemExists = cartItems.find((item) => item.productId === productId);
+		if (itemExists) {
+			setCartItems(
+				cartItems.map((item) =>
+					item.productId === productId
+						? { ...item, quantity: item.quantity + 1 }
+						: item
+				)
+			);
+		} else {
+			const newProductId = uuidv4();
+			console.log("addToCart newProductId:", newProductId);
+			axios
+				.get(`http://localhost:3001/products/${uuidv4()}`)
+				.then((response) => {
+					console.log("addToCart response:", response);
+					const product = {
+						id: uuidv4(),
+						src: response.data.src,
+						title: response.data.title,
+						price: response.data.price,
+						quantity: 1,
+					};
+					axios.post("http://localhost:3001/cart", product).then(() => {
+						setCartItems([...cartItems, product]);
+					});
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		}
 	};
 
 	const deleteFromCart = (id) => {
