@@ -1,68 +1,50 @@
-import { animated } from "@react-spring/web";
 import styled from "styled-components";
 import { colors } from "./Theme";
 
-export const Box = styled.div`
-	display: flex;
-	justify-items: center;
-	padding: 10px;
+export const CartContainer = styled.div`
+	display: none;
 	position: fixed;
-	width: auto;
-	height: auto;
-`;
-
-export const Box2 = styled(animated.div)`
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 300px;
+	padding: 1rem;
 	background-color: ${(props) => props.theme.body};
-	position: static;
-	height: auto;
-	width: auto;
-	display: flex;
-	align-items: flex-start;
-	box-sizing: border-box;
-	border-radius: 10px;
-	padding: 10px;
+	overflow-y: auto;
+
+	@media (min-width: 768px) {
+		display: block;
+		width: 400px;
+	}
 `;
 
-export const CartButton = styled(animated.button)`
-	border-radius: 10px;
+export const CartButton = styled.button`
+	position: absolute;
 	background-color: transparent;
-	border: solid;
-	border-color: transparent;
+	border: none;
 	cursor: pointer;
-	width: 43px;
-	height: 43px;
 `;
 
 export const Icons = styled.img`
 	color: ${colors.five};
-	width: 43px;
-	height: 43px;
+	width: 100%;
 `;
 
-export const Innerbox = styled.div`
-	width: auto;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-`;
-
-export const Title = styled(animated.h2)`
-	text-align: center;
+export const Title = styled.h2`
 	color: ${colors.five};
-	font-weight: 600;
 	font-size: 1.5rem;
-	margin: auto;
+	margin-bottom: 1rem;
 `;
 
-export const Subtitle = styled(animated.p)`
-	text-align: start;
-	color: ${colors.five};
-	font-weight: 600;
-	font-size: 1rem;
+export const Subtitle = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.25rem;
+	margin-bottom: 1rem;
 `;
 
-export const Btn = styled(animated.button)`
+export const Btn = styled.button`
 	--bg: ${(props) => props.theme.button};
 	--hover-bg: #000;
 	--hover-text: #fff;
@@ -91,28 +73,16 @@ export const Btn = styled(animated.button)`
 	}
 `;
 
-export const List = styled.div`
-	display: flex;
-	align-content: center;
-	flex-direction: column;
-	width: auto;
-	max-height: 35rem;
-	overflow-y: scroll;
-	overflow-x: hidden;
-
-	@media (min-width: 1200px) {
-		@media (orientation: landscape) {
-			display: flex;
-			flex: auto;
-			flex-direction: column;
-			flex-wrap: nowrap;
-			gap: 1rem;
-		}
-	}
+export const List = styled.ul`
+	margin: 0;
+	padding: 0;
 `;
 
-export const Boxbtn = styled.div`
-	margin: auto;
-	display: flex;
-	justify-content: center;
+export const Price = styled.span`
+	font-weight: bold;
+`;
+
+export const EmptyCart = styled.p`
+	margin-top: 1rem;
+	color: ${colors.five};
 `;

@@ -8,6 +8,7 @@ import {
 	Text,
 	TitleImg,
 } from "../styles/styledFoodMenu";
+
 const ShoppingCartProduct = ({ data, deleteFromCart }) => {
 	let { id, src, title, description, price } = data;
 	return (

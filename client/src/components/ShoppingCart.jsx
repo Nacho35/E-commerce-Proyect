@@ -1,29 +1,25 @@
 import React, { useState, useReducer, useEffect } from "react";
-import { useSpring } from "@react-spring/web";
 import {
-	Box,
-	Box2,
+	CartContainer,
 	Btn,
 	CartButton,
 	Icons,
-	Innerbox,
 	List,
 	Subtitle,
 	Title,
-	Boxbtn,
+	Price,
+	EmptyCart,
 } from "../styles/styledShoppingCart";
 import CartS from "../assets/cart.svg";
 import Cross from "../assets/cross2.svg";
-import { reducerCart, productsInitialState } from "../reducer/shoppingReducer";
+import { cartReducer, initialState } from "../reducer/shoppingReducer";
 import ProductItem from "../components/ProductItem";
 import TYPES from "../actions/shoppingAction";
-import ShoppingCartProduct from "./ShoppingCartProduct";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
 const ShoppingCart = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const [state, dispatch] = useReducer(reducerCart, productsInitialState);
+	const [state, dispatch] = useReducer(cartReducer, initialState);
 	const [products, setProducts] = useState([]);
 	const [cartItems, setCartItems] = useState([]);
 
@@ -39,23 +35,22 @@ const ShoppingCart = () => {
 	}, []);
 
 	const addToCart = (productId) => {
-		console.log("addToCart productId:", productId);
 		const itemExists = cartItems.find((item) => item.productId === productId);
 		if (itemExists) {
 			setCartItems(
 				cartItems.map((item) =>
 					item.productId === productId
-						? { ...item, quantity: item.quantity + 1 }
+						? {
+								...item,
+								quantity: item.quantity + 1,
+						  }
 						: item
 				)
 			);
 		} else {
-			const newProductId = uuidv4();
-			console.log("addToCart newProductId:", newProductId);
 			axios
-				.get(`http://localhost:3001/products/${uuidv4()}`)
+				.get(`http://localhost:3001/products/${productId}`)
 				.then((response) => {
-					console.log("addToCart response:", response);
 					const product = {
 						id: uuidv4(),
 						src: response.data.src,
@@ -74,93 +69,102 @@ const ShoppingCart = () => {
 	};
 
 	const deleteFromCart = (id) => {
-		dispatch({
-			type: TYPES.DELETE_PRODUCT_FROM_CART,
-			payload: id,
-		});
+		axios
+			.delete(`http://localhost:3001/cart/${id}`)
+			.then((response) => {
+				dispatch({
+					type: TYPES.DELETE_PRODUCT_FROM_CART,
+					payload: id,
+				});
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	};
 
 	const clearCart = () => {
-		dispatch({
-			type: TYPES.DELETE_ALL_FROM_CART,
-		});
+		axios
+			.delete("http://localhost:3001/cart")
+			.then((response) => {
+				dispatch({
+					type: TYPES.DELETE_ALL_FROM_CART,
+				});
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	};
+
+	const updateTotalPriceInJSON = (totalPrice) => {
+		axios
+			.put("http://localhost:3001/totalPrice", {
+				value: totalPrice,
+			})
+			.then((response) => {})
+			.catch((error) => {
+				console.error(error);
+			});
 	};
 
 	const calculateTotalPriceOfCart = () => {
-		dispatch({ type: TYPES.CALCULATE_TOTAL_PRICE_OF_THE_CART });
+		axios
+			.get("http://localhost:3001/cart")
+			.then((response) => {
+				const totalPrice = response.data.reduce(
+					(previousValue, product) => previousValue + product.price,
+					0
+				);
+				updateTotalPriceInJSON({
+					totalPrice,
+				});
+				dispatch({
+					type: TYPES.CALCULATE_TOTAL_PRICE_OF_THE_CART,
+					payload: totalPrice,
+				});
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	};
 
-	const btnAnimation = useSpring({
-		transform: isOpen ? "translateY(-10px)" : "translateY(0px)",
-		config: {
-			tension: 300,
-			friction: 10,
-		},
-	});
-
-	const menuAnimation = useSpring({
-		opacity: isOpen ? 1 : 0,
-		height: isOpen ? "100%" : "0%",
-	});
-
-	const boxAnimation = useSpring({
-		opacity: isOpen ? 1 : 0,
-		width: isOpen ? "100%" : "0%",
-	});
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<Box>
-			<Box2 style={(boxAnimation, { display: isOpen ? "block" : "none" })}>
-				<Innerbox>
-					<Title style={menuAnimation}>My Cart</Title>
-					<List>
-						{state.products.map((product) => {
-							return (
+		<CartButton type="button" onClick={() => setIsOpen(!isOpen)}>
+			{!isOpen ? (
+				<Icons src={CartS} alt="cart icon" />
+			) : (
+				<Icons src={Cross} alt="cross icon" />
+			)}
+			<CartContainer
+				style={{
+					display: isOpen ? "block" : "none",
+				}}>
+				<Title>My Cart</Title>
+				{state.cart.length === 0 ? (
+					<EmptyCart>The cart is empty</EmptyCart>
+				) : (
+					<>
+						<List>
+							{state.cart.map((product) => (
 								<ProductItem
 									key={product.id}
 									data={product}
 									addToCart={addToCart}
+									deleteFromCart={deleteFromCart}
 								/>
-							);
-						})}
-					</List>
-					<hr />
-					<Subtitle style={menuAnimation}>
-						<Btn onClick={() => calculateTotalPriceOfCart()}>Total Price</Btn>
-						{state.totalPriceShoppingCart > 0 && (
-							<p className="totalPrice_shoppingCart">
-								Total Price: {state.totalPriceShoppingCart}
-							</p>
-						)}
-					</Subtitle>
-					<Boxbtn>
-						<Btn onClick={() => clearCart()} style={menuAnimation}>
-							Clear cart
-						</Btn>
-					</Boxbtn>
-					{state.cart.length === 0 && <p>There are no products in the cart</p>}
-				</Innerbox>
-				{state.cart.map((productCart) => {
-					return (
-						<ShoppingCartProduct
-							key={productCart.id + Math.random() * 50}
-							data={productCart}
-							deleteFromCart={deleteFromCart}
-						/>
-					);
-				})}
-			</Box2>
-			<CartButton
-				style={btnAnimation}
-				type="button"
-				onClick={() => setIsOpen(!isOpen)}>
-				{!isOpen ? (
-					<Icons src={CartS} alt="cart icon" />
-				) : (
-					<Icons src={Cross} alt="cross icon" />
+							))}
+						</List>
+						<hr />
+						<Subtitle>
+							Total Price:
+							<Price>${calculateTotalPriceOfCart().toFixed(2)}</Price>
+						</Subtitle>
+						<Btn onClick={() => clearCart()}>Clear cart</Btn>
+					</>
 				)}
-			</CartButton>
-		</Box>
+			</CartContainer>
+		</CartButton>
 	);
 };
 
