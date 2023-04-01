@@ -145,7 +145,7 @@ const Navbar = (props) => {
 					)}
 				</Btn>
 			</Boxburguer1>
-			<Cartbox id="cart-container">
+			<Cartbox>
 				<ShoppingCart />
 			</Cartbox>
 		</Nav>

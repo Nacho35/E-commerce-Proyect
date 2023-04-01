@@ -312,7 +312,10 @@ const FoodMenu = () => {
 							<Img src={image.src} alt="food" />
 							<TitleImg>{image.title}</TitleImg>
 							<Text>{image.description}</Text>
-							<Btn2 type="button" onClick={() => addToCart(image.id)}>
+							<Btn2
+								type="button"
+								addToCart={addToCart}
+								onClick={() => addToCart(image.id)}>
 								To Order
 							</Btn2>
 							<Price>{image.price}</Price>

@@ -226,12 +226,15 @@ export const Modebtn = styled.button`
 `;
 
 export const Cartbox = styled.div`
-	position: absolute;
+	position: fixed;
 	top: auto;
 	width: 100%;
 	height: auto;
 	margin-right: 1rem;
+	margin-bottom: auto;
 	align-self: center;
+	display: block;
+	justify-content: center;
 
 	@media (min-width: 360px) {
 		margin-right: 1.5rem;
