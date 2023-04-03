@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer } from "react";
 import {
 	CartContainer,
 	Btn,
@@ -13,29 +13,18 @@ import {
 import CartS from "../assets/cart.svg";
 import Cross from "../assets/cross2.svg";
 import { cartReducer, initialState } from "../reducer/shoppingReducer";
-import ProductItem from "../components/ProductItem";
+import ProductItem from "./ProductItem";
 import TYPES from "../actions/shoppingAction";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
 const ShoppingCart = () => {
 	const [state, dispatch] = useReducer(cartReducer, initialState);
-	const [products, setProducts] = useState([]);
 	const [cartItems, setCartItems] = useState([]);
-
-	useEffect(() => {
-		axios
-			.get("http://localhost:3001/products")
-			.then((response) => {
-				setProducts(response.data);
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-	}, []);
 
 	const addToCart = (productId) => {
 		const itemExists = cartItems.find((item) => item.productId === productId);
+
 		if (itemExists) {
 			setCartItems(
 				cartItems.map((item) =>
@@ -53,13 +42,17 @@ const ShoppingCart = () => {
 				.then((response) => {
 					const product = {
 						id: uuidv4(),
-						src: response.data.src,
-						title: response.data.title,
-						price: response.data.price,
+						src: response.product.src,
+						title: response.product.title,
+						price: response.product.price,
 						quantity: 1,
 					};
+					const newItem = {
+						productId: productId,
+						...product,
+					};
 					axios.post("http://localhost:3001/cart", product).then(() => {
-						setCartItems([...cartItems, product]);
+						setCartItems([...cartItems, newItem]);
 					});
 				})
 				.catch((error) => {
@@ -107,24 +100,26 @@ const ShoppingCart = () => {
 	};
 
 	const calculateTotalPriceOfCart = () => {
-		axios
-			.get("http://localhost:3001/cart")
-			.then((response) => {
-				const totalPrice = response.data.reduce(
-					(previousValue, product) => previousValue + product.price,
-					0
-				);
-				updateTotalPriceInJSON({
-					totalPrice,
-				});
-				dispatch({
-					type: TYPES.CALCULATE_TOTAL_PRICE_OF_THE_CART,
-					payload: totalPrice,
-				});
-			})
-			.catch((error) => {
-				console.error(error);
+		axios.get("http://localhost:3001/cart").then((response) => {
+			const totalPrice = cartItems.reduce(
+				(total, item) => total + item.price * item.quantity,
+				0
+			);
+			updateTotalPriceInJSON({
+				totalPrice,
 			});
+			return dispatch({ type: "SET_TOTAL_PRICE", payload: totalPrice });
+		});
+		try {
+			const totalPrice = cartItems.reduce(
+				(total, item) => total + item.price * item.quantity,
+				0
+			);
+			dispatch({ type: "SET_TOTAL_PRICE", payload: totalPrice });
+		} catch (error) {
+			console.log(error);
+			return error;
+		}
 	};
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -149,7 +144,7 @@ const ShoppingCart = () => {
 							{state.cart.map((product) => (
 								<ProductItem
 									key={product.id}
-									data={product}
+									product={product}
 									addToCart={addToCart}
 									deleteFromCart={deleteFromCart}
 								/>
