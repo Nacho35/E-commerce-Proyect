@@ -1,31 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import Icon from "../assets/food.svg";
-import Pic1 from "../assets/product-1.jpg";
-import Pic2 from "../assets/product-2.jpg";
-import Pic3 from "../assets/product-3.jpg";
-import Pic4 from "../assets/product-4.jpg";
-import Pic5 from "../assets/product-5.jpg";
-import Pic6 from "../assets/product-6.jpg";
-import Pic7 from "../assets/product-7.jpg";
-import Pic8 from "../assets/product-8.jpg";
-import Pic9 from "../assets/product-9.jpg";
-import Pic10 from "../assets/product-10.jpg";
-import Pic11 from "../assets/product-11.jpg";
-import Pic12 from "../assets/product-12.jpg";
-import Pic13 from "../assets/product-13.jpg";
-import Pic14 from "../assets/product-14.jpg";
-import Pic15 from "../assets/product-15.jpg";
-import Pic16 from "../assets/product-16.jpg";
-import Pic17 from "../assets/product-17.jpg";
-import Pic18 from "../assets/product-18.jpg";
-import Pic19 from "../assets/product-19.jpg";
-import Pic20 from "../assets/product-20.jpg";
-import Pic21 from "../assets/product-21.jpg";
-import Pic22 from "../assets/product-22.jpg";
-import Pic23 from "../assets/product-23.jpg";
-import Pic24 from "../assets/product-24.jpg";
-import Pic25 from "../assets/product-25.jpg";
+import { useState, useEffect } from "react";
 import {
 	Box,
 	Box2,
@@ -44,7 +19,34 @@ import {
 } from "../styles/styledFoodMenu";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 import addToCart from "./ShoppingCart";
+
+const pic1 = require("../assets/product-1.jpg");
+const pic2 = require("../assets/product-2.jpg");
+const pic3 = require("../assets/product-3.jpg");
+const pic4 = require("../assets/product-4.jpg");
+const pic5 = require("../assets/product-5.jpg");
+const pic6 = require("../assets/product-6.jpg");
+const pic7 = require("../assets/product-7.jpg");
+const pic8 = require("../assets/product-8.jpg");
+const pic9 = require("../assets/product-9.jpg");
+const pic10 = require("../assets/product-10.jpg");
+const pic11 = require("../assets/product-11.jpg");
+const pic12 = require("../assets/product-12.jpg");
+const pic13 = require("../assets/product-13.jpg");
+const pic14 = require("../assets/product-14.jpg");
+const pic15 = require("../assets/product-15.jpg");
+const pic16 = require("../assets/product-16.jpg");
+const pic17 = require("../assets/product-17.jpg");
+const pic18 = require("../assets/product-18.jpg");
+const pic19 = require("../assets/product-19.jpg");
+const pic20 = require("../assets/product-20.jpg");
+const pic21 = require("../assets/product-21.jpg");
+const pic22 = require("../assets/product-22.jpg");
+const pic23 = require("../assets/product-23.jpg");
+const pic24 = require("../assets/product-24.jpg");
+const pic25 = require("../assets/product-25.jpg");
 
 AOS.init({
 	duration: 3000,
@@ -54,205 +56,57 @@ AOS.init({
 	mirror: true,
 });
 
-const FoodMenu = () => {
-	const images = [
-		{
-			src: Pic1,
-			title: "Double Cheese Pizza",
-			description:
-				"Delicious pizza with double cheese melted on top, with parmesan cheese and egg",
-			price: "$15.30",
-			type: "pizzas",
-		},
-		{
-			src: Pic2,
-			title: "Seafood",
-			description:
-				"A delightful mix of seafood including shrimp, calamari, and mussels",
-			price: "$23.99",
-			type: "all",
-		},
-		{
-			src: Pic3,
-			title: "Double mac burger",
-			description:
-				"Two juicy beef patties served with lettuce, tomato, onion, and our signature special sauce",
-			price: "$13.80",
-			type: "burgers",
-		},
-		{
-			src: Pic4,
-			title: "Pasta",
-			description:
-				"A mouth-watering dish of al dente pasta with your choice of sauce and topped with parmesan cheese",
-			price: "$16.99",
-			type: "pasts",
-		},
-		{
-			src: Pic5,
-			title: "Beef cheese burger",
-			description:
-				"A classic burger with a juicy beef patty and melted cheese on top",
-			price: "$11.50",
-			type: "burgers",
-		},
-		{
-			src: Pic6,
-			title: "Double cheese pizza with pepperoni",
-			description:
-				"Delicious pizza with double cheese melted on top, with parmesan cheese and pepperoni",
-			price: "$15.30",
-			type: "pizzas",
-		},
-		{
-			src: Pic7,
-			title: "Lemonade",
-			description: "Freshly squeezed lemonade with a hint of sweetness",
-			price: "$5.00",
-			type: "drinks",
-		},
-		{
-			src: Pic8,
-			title: "Chicken burger",
-			description:
-				"Grilled chicken breast served with lettuce, tomato, onion, and our signature special sauce",
-			price: "$14.35",
-			type: "burgers",
-		},
-		{
-			src: Pic9,
-			title: "Grill Meat",
-			description: "A juicy and tender cut of steak grilled to perfection",
-			price: "$16.00",
-			type: "steaks",
-		},
-		{
-			src: Pic10,
-			title: "Specialty of the house",
-			description:
-				"Savor our chef's special succulent steak served with garlic mashed potatoes.",
-			price: "$25.00",
-			type: "steaks",
-		},
-		{
-			src: Pic11,
-			title: "Chicken legs",
-			description: "Two juicy chicken legs served with your choice of sauce",
-			price: "$14.00",
-			type: "steaks",
-		},
-		{
-			src: Pic12,
-			title: "Loin meat with vegetables",
-			description: "Tender loin meat served with grilled vegetables",
-			price: "$20.00",
-			type: "steaks",
-		},
-		{
-			src: Pic13,
-			title: "Roman salad",
-			description:
-				"A crisp and refreshing salad with romaine lettuce, croutons, and parmesan cheese",
-			price: "$12.40",
-			type: "salads",
-		},
-		{
-			src: Pic14,
-			title: "Thousands of salads to suit you",
-			description:
-				"Customize your own salad with our wide variety of fresh ingredients",
-			price: "$13.50",
-			type: "salads",
-		},
-		{
-			src: Pic15,
-			title: "Vegetable casserole",
-			description:
-				"A hearty and healthy dish of baked vegetables topped with melted cheese",
-			price: "$11.10",
-			type: "salads",
-		},
-		{
-			src: Pic16,
-			title: "Brownies",
-			description:
-				"Indulge in fudgy brownies made with high-quality cocoa powder and a secret ingredient",
-			price: "$10.00",
-			type: "deserts",
-		},
-		{
-			src: Pic17,
-			title: "Strawberry cake",
-			description:
-				"Moist strawberry cake with fresh strawberries and creamy frosting",
-			price: "$8.50",
-			type: "deserts",
-		},
-		{
-			src: Pic18,
-			title: "Meridian cake with chocolate",
-			description: "Decadent Meridian Cake with chocolate layers and shavings",
-			price: "$12.20",
-			type: "deserts",
-		},
-		{
-			src: Pic19,
-			title: "Sparkling with orange",
-			description:
-				"Refreshing orange juice and sparkling water drink for summer",
-			price: "$11.60",
-			type: "drinks",
-		},
-		{
-			src: Pic20,
-			title: "Coca Cola",
-			description: "Classic Coca Cola for a refreshing carbonated taste",
-			price: "$6.00",
-			type: "drinks",
-		},
-		{
-			src: Pic21,
-			title: "Orange juice",
-			description:
-				"Freshly squeezed orange juice for a sweet and tangy start to your day",
-			price: "$8.00",
-			type: "drinks",
-		},
-		{
-			src: Pic22,
-			title: "Ribbons with white sauce",
-			description:
-				"Satisfy your cravings with our classic Ribbons with White Sauce - al dente pasta in a rich and creamy white sauce",
-			price: "$19.00",
-			type: "pasts",
-		},
-		{
-			src: Pic23,
-			title: "Ribbons with red sauce",
-			description:
-				"Enjoy a classic Italian favorite with our Ribbons with Red Sauce - al dente pasta topped with a flavorful tomato-based sauce",
-			price: "$21.20",
-			type: "pasts",
-		},
-		{
-			src: Pic24,
-			title: "Sourdough pizza",
-			description:
-				"Fresh and flavorful Sourdough Pizza with homemade crust - perfect for a cozy night in!",
-			price: "$16.30",
-			type: "pizzas",
-		},
-		{
-			src: Pic25,
-			title: "Double sauce flaming burger",
-			description:
-				"Bold and juicy Double Sauce Flaming Burger with crispy fries - not for the faint of heart!",
-			price: "$15.70",
-			type: "burgers",
-		},
-	];
+const images = {
+	pic1,
+	pic2,
+	pic3,
+	pic4,
+	pic5,
+	pic6,
+	pic7,
+	pic8,
+	pic9,
+	pic10,
+	pic11,
+	pic12,
+	pic13,
+	pic14,
+	pic15,
+	pic16,
+	pic17,
+	pic18,
+	pic19,
+	pic20,
+	pic21,
+	pic22,
+	pic23,
+	pic24,
+	pic25,
+};
 
-	const [productType, setProductType] = useState("all");
+const db = require("../api/db.json");
+
+const FoodMenu = () => {
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		axios
+			.get("http://localhost:3001/products")
+			.then((response) => {
+				setProducts(response.data);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	}, []);
+
+	const filterProducts = (type) => {
+		if (type === "all") {
+			setProducts(db.products);
+		} else {
+			setProducts(db.products.filter((product) => product.type === type));
+		}
+	};
 
 	return (
 		<Box>
@@ -262,65 +116,42 @@ const FoodMenu = () => {
 			</Box2>
 			<Box3 data-aos="fade-down">
 				<BoxBtn>
-					<Btn type="button" onClick={() => setProductType("all")}>
-						ALL
-					</Btn>
+					<Btn onClick={() => filterProducts("all")}>All</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn type="button" onClick={() => setProductType("burgers")}>
-						BURGERS
-					</Btn>
+					<Btn onClick={() => filterProducts("pizzas")}>Pizzas</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn type="button" onClick={() => setProductType("pizzas")}>
-						PIZZAS
-					</Btn>
+					<Btn onClick={() => filterProducts("burgers")}>Burgers</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn type="button" onClick={() => setProductType("steaks")}>
-						STEAKS
-					</Btn>
+					<Btn onClick={() => filterProducts("pasts")}>Pasta</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn type="button" onClick={() => setProductType("pasts")}>
-						PASTS
-					</Btn>
+					<Btn onClick={() => filterProducts("drinks")}>Drinks</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn type="button" onClick={() => setProductType("salads")}>
-						SALADS
-					</Btn>
+					<Btn onClick={() => filterProducts("steaks")}>Steaks</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn type="button" onClick={() => setProductType("deserts")}>
-						DESERTS
-					</Btn>
+					<Btn onClick={() => filterProducts("deserts")}>Deserts</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn type="button" onClick={() => setProductType("drinks")}>
-						DRINKS
-					</Btn>
+					<Btn onClick={() => filterProducts("salads")}>Salads</Btn>
 				</BoxBtn>
 			</Box3>
 			<Box4>
-				{images
-					.filter(
-						(image) => productType === "all" || image.type === productType
-					)
-					.map((image, index) => (
-						<BoxImg data-aos="flip-left" key={index}>
-							<Img src={image.src} alt="food" />
-							<TitleImg>{image.title}</TitleImg>
-							<Text>{image.description}</Text>
-							<Btn2
-								type="button"
-								addToCart={addToCart}
-								onClick={() => addToCart(image.id)}>
-								To Order
-							</Btn2>
-							<Price>{image.price}</Price>
-						</BoxImg>
-					))}
+				{products.map((product) => (
+					<BoxImg data-aos="flip-left" key={product.id}>
+						<Img src={images[product.src]} alt={product.title} />
+						<TitleImg>{product.title}</TitleImg>
+						<Text>{product.description}</Text>
+						<Btn2 type="button" onClick={() => addToCart(product.id)}>
+							To Order
+						</Btn2>
+						<Price>${product.price.toFixed(2)}</Price>
+					</BoxImg>
+				))}
 			</Box4>
 		</Box>
 	);

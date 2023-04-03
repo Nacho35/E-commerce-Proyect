@@ -9,11 +9,17 @@ import {
 	TitleImg,
 } from "../styles/styledFoodMenu";
 
-const ProductItem = ({ data, addToCart, deleteFromCart }) => {
-	let { id, src, title, description, price } = data;
+const ProductItem = ({ product, addToCart, deleteFromCart }) => {
+	let { src, title, description, price } = product;
+
 	const handleAddToCart = () => {
-		addToCart(data);
+		addToCart(product.id);
 	};
+
+	const handleDeleteClick = () => {
+		deleteFromCart(product.id);
+	};
+
 	return (
 		<Box4>
 			<BoxImg>
@@ -23,7 +29,7 @@ const ProductItem = ({ data, addToCart, deleteFromCart }) => {
 				<Btn2 type="button" onClick={handleAddToCart}>
 					To Order
 				</Btn2>
-				<Btn2 type="button" onClick={() => deleteFromCart(id)}>
+				<Btn2 type="button" onClick={handleDeleteClick}>
 					Delete
 				</Btn2>
 				<Price>{price}</Price>

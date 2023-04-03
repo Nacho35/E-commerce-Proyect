@@ -27,6 +27,11 @@ export const cartReducer = (state = initialState, action) => {
 				...state,
 				totalPrice: action.payload,
 			};
+		case TYPES.ADD_NEW_ITEM_TO_CART:
+			return {
+				...state,
+				cart: [...state.cart, action.payload],
+			};
 		default:
 			return state;
 	}
