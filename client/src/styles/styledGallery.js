@@ -7,7 +7,7 @@ export const Box = styled.div`
 	background-image: ${(props) => props.theme.backgroundImage2};
 	background-size: auto;
 	overflow-x: hidden;
-	padding-bottom: 4rem;
+	padding-bottom: 2rem;
 `;
 
 export const Box2 = styled.div`

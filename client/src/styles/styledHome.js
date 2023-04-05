@@ -38,7 +38,7 @@ export const Box3 = styled.div`
 
 export const Title = styled.h1`
 	text-align: left;
-	color: ${(props) => props.theme.text};
+	color: #ffff;
 	font-size: 5rem;
 `;
 
@@ -52,11 +52,11 @@ export const BoxP = styled.div`
 `;
 
 export const Text = styled.p`
-	color: ${(props) => props.theme.text};
+	color: #ffff;
 	font-size: 1rem;
 	display: block;
 	text-align: start;
-	margin-bottom: 2rem;
+	margin-bottom: 2.5rem;
 
 	@media (min-width: 1200px) {
 		width: 5%;

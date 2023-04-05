@@ -7,7 +7,7 @@ export const Box = styled.div`
 	width: auto;
 	height: auto;
 	overflow: hidden;
-	padding-top: 1rem;
+	padding-top: 2rem;
 `;
 
 export const Box2 = styled.div`
@@ -60,6 +60,7 @@ export const Title = styled.h2`
 
 export const Box3 = styled.div`
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 `;
 
@@ -73,20 +74,25 @@ export const Box4 = styled.div`
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		margin: auto;
+		margin-bottom: 1rem;
 	}
 	@media (min-width: 776px) {
 		display: flex;
-		flex-direction: column;
-		margin: auto;
+		flex-direction: row;
+		justify-content: center;
+		margin-bottom: 1rem;
 	}
 	@media (min-width: 992px) {
 		display: flex;
 		flex-direction: row;
-		margin: auto;
+		justify-content: center;
+		margin-bottom: 1rem;
 	}
 	@media (min-width: 1200px) {
-		margin-right: 1.5rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-bottom: 2rem;
 	}
 `;
 
@@ -98,16 +104,15 @@ export const InnerBox = styled.div`
 
 export const InsideBox = styled.div`
 	display: flex;
-	align-items: center;
-	padding: 1rem;
-	margin-right: 2rem;
+	align-self: center;
+	margin: auto;
 `;
 
 export const InsideBox2 = styled.div`
 	display: flex;
-	align-items: center;
-	padding-left: 10px;
-	padding-right: 10px;
+	align-self: center;
+	margin: auto;
+	padding: 1.5rem;
 `;
 
 export const InnerBox2 = styled.div`
@@ -118,26 +123,27 @@ export const InnerBox2 = styled.div`
 
 	@media (min-width: 360px) {
 		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
+		flex-direction: row;
+		margin-top: 1rem;
 		justify-content: center;
-		margin: auto;
 	}
 	@media (min-width: 776px) {
 		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
+		flex-direction: row;
+		margin-top: 1rem;
 		justify-content: center;
-		margin: auto;
 	}
 	@media (min-width: 992px) {
 		display: flex;
 		flex-direction: row;
-		flex-wrap: wrap;
+		margin-top: 2rem;
 		justify-content: center;
 	}
 	@media (min-width: 1200px) {
-		margin-left: 1.5rem;
+		display: flex;
+		flex-direction: row;
+		margin-top: 2rem;
+		justify-content: center;
 	}
 `;
 
@@ -145,14 +151,6 @@ export const IC = styled.img`
 	width: 3rem;
 	height: auto;
 	margin: 1rem;
-`;
-
-export const H3 = styled.h3`
-	color: ${(props) => props.theme.text};
-	font-size: 1.3rem;
-	font-weight: 800;
-	text-transform: uppercase;
-	margin: auto;
 `;
 
 export const H4 = styled.h4`
@@ -194,18 +192,6 @@ export const BoxMap = styled.div`
 	width: auto;
 	height: 25ch;
 	padding-bottom: 5%;
-`;
-
-export const Map = styled.iframe`
-	width: 100%;
-	height: 200%;
-	margin: auto;
-	margin-top: 1.5rem;
-	opacity: 0.5;
-
-	&:hover {
-		opacity: 1;
-	}
 `;
 
 export const Reserved = styled.div`

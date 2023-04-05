@@ -8,8 +8,8 @@ export const Box = styled.div`
 	background-size: auto;
 	display: flex;
 	overflow-x: hidden;
-	padding-top: 5rem;
-	padding-bottom: 3rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 `;
 
 export const Box2 = styled.div`
@@ -204,7 +204,7 @@ export const Image = styled.img`
 export const Boximage = styled.div`
 	display: flex;
 	align-self: center;
-	padding-bottom: 5rem;
+	padding-bottom: 2rem;
 
 	@media (min-width: 776px) {
 		width: auto;
