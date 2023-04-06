@@ -39,7 +39,7 @@ const MapFooter = () => {
 		};
 	}, []);
 
-	return <div className="map" id="map"></div>;
+	return <div data-aos="flip-down" className="map" id="map"></div>;
 };
 
 export default MapFooter;

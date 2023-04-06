@@ -137,7 +137,7 @@ const ShoppingCart = () => {
 				}}>
 				<Title>My Cart</Title>
 				{state.cart.length === 0 ? (
-					<EmptyCart>The cart is empty</EmptyCart>
+					<EmptyCart>Ops! Nothing Here</EmptyCart>
 				) : (
 					<>
 						<List>
