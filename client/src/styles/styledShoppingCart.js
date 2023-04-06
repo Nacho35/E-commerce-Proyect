@@ -8,6 +8,7 @@ export const CartContainer = styled.div`
 	right: 0;
 	bottom: 0;
 	width: 300px;
+	height: auto;
 	padding: 1rem;
 	background-color: ${(props) => props.theme.body};
 	overflow-y: auto;

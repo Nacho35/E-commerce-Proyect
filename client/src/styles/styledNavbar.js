@@ -124,7 +124,7 @@ export const SPAN = styled.span`
 `;
 
 export const Btn = styled(animated.button)`
-	background-color: ${(props) => props.theme.button};
+	background-color: transparent;
 	border-radius: 10px;
 	border: solid;
 	border-color: transparent;
@@ -161,6 +161,7 @@ export const Boxburguer2 = styled(animated.div)`
 	display: flex;
 	align-items: flex-start;
 	box-sizing: border-box;
+	margin-left: 3rem;
 `;
 
 export const AB = styled(animated(NavLink))`
@@ -170,7 +171,8 @@ export const AB = styled(animated(NavLink))`
 	font-size: 3em;
 	font-weight: 600;
 	display: flex;
-	text-align: start;
+	text-align: center;
+	flex-direction: column;
 
 	&:hover {
 		color: ${(props) => props.theme.hover};
@@ -211,7 +213,7 @@ export const Bars = styled.svg`
 export const BoxB = styled.div`
 	display: flex;
 	justify-content: center;
-	margin-left: 1.5rem;
+	margin: auto;
 	padding: 10px;
 `;
 
@@ -223,36 +225,40 @@ export const Modebtn = styled.button`
 	cursor: pointer;
 	width: auto;
 	height: auto;
+	margin-left: 1rem;
 `;
 
 export const Cartbox = styled.div`
-	position: fixed;
+	position: absolute;
 	top: auto;
 	width: 100%;
 	height: auto;
-	margin-right: 1rem;
-	margin-bottom: auto;
+	margin: auto;
 	align-self: center;
-	display: block;
-	justify-content: center;
+	display: flex;
+	justify-content: left;
 
 	@media (min-width: 360px) {
-		margin-right: 1.5rem;
+		margin-right: auto;
+		margin-top: 13px;
 		align-self: baseline;
 	}
 
 	@media (min-width: 776px) {
 		margin-right: auto;
+		margin-top: 13px;
 		align-self: baseline;
 	}
 
 	@media (min-width: 992px) {
 		margin-right: auto;
+		margin-top: 13px;
 		align-self: baseline;
 	}
 
 	@media (min-width: 1200px) {
 		margin-right: auto;
+		margin-top: 13px;
 		align-self: baseline;
 	}
 `;

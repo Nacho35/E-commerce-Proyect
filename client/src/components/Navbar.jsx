@@ -120,7 +120,7 @@ const Navbar = (props) => {
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none">
 							<path
-								stroke="currentColor"
+								stroke="#f9430a"
 								strokeLinecap="round"
 								strokeLinejoin="round"
 								strokeWidth="2"
@@ -135,7 +135,7 @@ const Navbar = (props) => {
 							viewBox="0 0 24 24"
 							xmlns="http://www.w3.org/2000/svg">
 							<path
-								stroke="currentColor"
+								stroke="#f9430a"
 								strokeLinecap="round"
 								strokeLinejoin="round"
 								strokeWidth="1"

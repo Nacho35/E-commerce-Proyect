@@ -8,7 +8,7 @@ export const Box = styled.div`
 	background-size: auto;
 	display: flex;
 	overflow-x: hidden;
-	padding-top: 2rem;
+	padding-top: 5rem;
 	padding-bottom: 2rem;
 `;
 

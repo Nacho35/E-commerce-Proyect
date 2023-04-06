@@ -13,7 +13,7 @@ export const Box = styled.div`
 	gap: 1rem;
 	align-items: center;
 	overflow: hidden;
-	padding-top: 2rem;
+	padding-top: 3rem;
 	padding-bottom: 2rem;
 
 	@media (min-width: 360px) {

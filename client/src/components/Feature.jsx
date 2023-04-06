@@ -76,7 +76,7 @@ const Feature = () => {
 						</SPAN>
 					</Info3>
 					<Boximage>
-						<Image data-aos="zoom-in" src={Resto} alt="restorant" />
+						<Image data-aos="flip-up" src={Resto} alt="restorant" />
 					</Boximage>
 				</Box3>
 			</Box2>

@@ -108,6 +108,10 @@ const FoodMenu = () => {
 		}
 	};
 
+	useEffect(() => {
+		filterProducts("all");
+	}, []);
+
 	return (
 		<Box>
 			<Box2 data-aos="fade-up">
