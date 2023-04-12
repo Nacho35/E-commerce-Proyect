@@ -1,13 +1,16 @@
-import React, { createContext, useReducer, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import { cartReducer, initialState } from "../reducer/shoppingReducer";
-import CALCULATE_TOTAL_PRICE_OF_THE_CART from "../actions/shoppingAction";
 
-export const CartContext = createContext();
+export const CartContext = createContext({
+	cartItems: [],
+	addToCart: () => {},
+	removeFromCart: () => {},
+});
 
 const CartContextProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([]);
+	const [totalPrice, setTotalPrice] = useState(0);
 
 	useEffect(() => {
 		axios.get("http://localhost:3001/cart").then((response) => {
@@ -87,31 +90,25 @@ const CartContextProvider = ({ children }) => {
 			});
 	};
 
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const calculateTotalPriceOfCart = () => {
-		const totalPrice = cartItems.reduce(
+	const updateCartItems = (newCartItems) => {
+		setCartItems(newCartItems);
+		const totalPrice = newCartItems.reduce(
 			(total, item) => total + item.price * item.quantity,
 			0
 		);
 		updateTotalPriceInJSON(totalPrice);
-		return totalPrice;
+		setTotalPrice(totalPrice);
 	};
-
-	const [state, dispatch] = useReducer(cartReducer, initialState);
-
 	useEffect(() => {
-		dispatch({
-			type: CALCULATE_TOTAL_PRICE_OF_THE_CART,
-			payload: calculateTotalPriceOfCart(),
-		});
-	}, [calculateTotalPriceOfCart, cartItems]);
+		updateCartItems(cartItems);
+	}, [cartItems]);
 
 	const value = {
 		cartItems,
 		addToCart,
 		deleteFromCart,
 		clearCart,
-		totalPrice: state.totalPrice,
+		totalPrice: cartItems.totalPrice,
 	};
 
 	return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
