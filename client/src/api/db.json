@@ -203,8 +203,6 @@
 	],
 	"cart": [],
 	"totalPrice": {
-		"value": {
-			"totalPrice": 0
-		}
+		"value": 0
 	}
 }

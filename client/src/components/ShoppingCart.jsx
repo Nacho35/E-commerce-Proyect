@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState } from "react";
 import {
 	CartContainer,
 	Btn,
@@ -12,14 +12,11 @@ import {
 } from "../styles/styledShoppingCart";
 import CartS from "../assets/cart.svg";
 import Cross from "../assets/cross2.svg";
-import { cartReducer, initialState } from "../reducer/shoppingReducer";
 import ProductItem from "./ProductItem";
-import TYPES from "../actions/shoppingAction";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
 const ShoppingCart = () => {
-	const [state, dispatch] = useReducer(cartReducer, initialState);
 	const [cartItems, setCartItems] = useState([]);
 
 	const addToCart = (productId) => {
@@ -64,12 +61,7 @@ const ShoppingCart = () => {
 	const deleteFromCart = (id) => {
 		axios
 			.delete(`http://localhost:3001/cart/${id}`)
-			.then((response) => {
-				dispatch({
-					type: TYPES.DELETE_PRODUCT_FROM_CART,
-					payload: id,
-				});
-			})
+			.then((response) => {})
 			.catch((error) => {
 				console.error(error);
 			});
@@ -79,9 +71,7 @@ const ShoppingCart = () => {
 		axios
 			.delete("http://localhost:3001/cart")
 			.then((response) => {
-				dispatch({
-					type: TYPES.DELETE_ALL_FROM_CART,
-				});
+				setCartItems([]);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -108,18 +98,8 @@ const ShoppingCart = () => {
 			updateTotalPriceInJSON({
 				totalPrice,
 			});
-			return dispatch({ type: "SET_TOTAL_PRICE", payload: totalPrice });
+			return totalPrice;
 		});
-		try {
-			const totalPrice = cartItems.reduce(
-				(total, item) => total + item.price * item.quantity,
-				0
-			);
-			dispatch({ type: "SET_TOTAL_PRICE", payload: totalPrice });
-		} catch (error) {
-			console.log(error);
-			return error;
-		}
 	};
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -136,12 +116,12 @@ const ShoppingCart = () => {
 					display: isOpen ? "block" : "none",
 				}}>
 				<Title>My Cart</Title>
-				{state.cart.length === 0 ? (
+				{cartItems.length === 0 ? (
 					<EmptyCart>Ops! Nothing Here</EmptyCart>
 				) : (
 					<>
 						<List>
-							{state.cart.map((product) => (
+							{cartItems.map((product) => (
 								<ProductItem
 									key={product.id}
 									product={product}
