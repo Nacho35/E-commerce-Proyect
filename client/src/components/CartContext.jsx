@@ -90,16 +90,16 @@ const CartContextProvider = ({ children }) => {
 			});
 	};
 
-	const updateCartItems = (newCartItems) => {
-		setCartItems(newCartItems);
-		const totalPrice = newCartItems.reduce(
-			(total, item) => total + item.price * item.quantity,
-			0
-		);
-		updateTotalPriceInJSON(totalPrice);
-		setTotalPrice(totalPrice);
-	};
 	useEffect(() => {
+		const updateCartItems = (newCartItems) => {
+			setCartItems(newCartItems);
+			const totalPrice = newCartItems.reduce(
+				(total, item) => total + item.price * item.quantity,
+				0
+			);
+			updateTotalPriceInJSON(totalPrice);
+			setTotalPrice(totalPrice);
+		};
 		updateCartItems(cartItems);
 	}, [cartItems]);
 
@@ -108,7 +108,7 @@ const CartContextProvider = ({ children }) => {
 		addToCart,
 		deleteFromCart,
 		clearCart,
-		totalPrice: cartItems.totalPrice,
+		totalPrice: totalPrice,
 	};
 
 	return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
