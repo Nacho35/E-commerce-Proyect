@@ -3,15 +3,12 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { createContext, useEffect, useState } from "react";
 
-const CartContext = createContext({
-	cartItems: [],
-});
+const CartContext = createContext({});
 
 const CartContextProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0);
 
-	debugger;
 	useEffect(() => {
 		axios
 			.get("http://localhost:3001/cart")
@@ -119,7 +116,9 @@ const CartContextProvider = ({ children }) => {
 		totalPrice: totalPrice,
 	};
 
-	return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+	return (
+		<CartContext.Provider value={{ value }}>{children}</CartContext.Provider>
+	);
 };
 
 export default CartContextProvider;
