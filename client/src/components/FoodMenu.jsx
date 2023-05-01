@@ -20,7 +20,7 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
-import CartContext from "../components/CartContext";
+import CartContext from "./CartContext";
 
 const pic1 = require("../assets/product-1.jpg");
 const pic2 = require("../assets/product-2.jpg");
@@ -89,6 +89,7 @@ const db = require("../api/db.json");
 const FoodMenu = () => {
 	const [products, setProducts] = useState([]);
 	const addToCart = useContext(CartContext);
+	console.log(addToCart);
 
 	useEffect(() => {
 		axios

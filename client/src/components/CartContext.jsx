@@ -1,26 +1,34 @@
-import React, { createContext, useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import { createContext, useEffect, useState } from "react";
 
-export const CartContext = createContext({
+const CartContext = createContext({
 	cartItems: [],
-	addToCart: () => {},
-	removeFromCart: () => {},
 });
 
 const CartContextProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0);
 
+	debugger;
 	useEffect(() => {
-		axios.get("http://localhost:3001/cart").then((response) => {
-			setCartItems(response.data);
-		});
+		axios
+			.get("http://localhost:3001/cart")
+			.then((response) => {
+				if (response && response.data) {
+					const { cartItems, totalPrice } = response.data;
+					setCartItems(cartItems);
+					setTotalPrice(totalPrice);
+				}
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	}, []);
 
 	const addToCart = (productId) => {
 		const itemExists = cartItems.find((item) => item.productId === productId);
-
 		if (itemExists) {
 			setCartItems(
 				cartItems.map((item) =>
@@ -34,20 +42,18 @@ const CartContextProvider = ({ children }) => {
 			);
 		} else {
 			axios
-				.get(`http://localhost:3001/products/${productId}`)
+				.get(`http://localhost:3001/products/\${productId}`)
 				.then((response) => {
-					const product = {
-						id: uuidv4(),
-						src: response.product.src,
-						title: response.product.title,
-						price: response.product.price,
-						quantity: 1,
-					};
+					const product = response.data;
 					const newItem = {
 						productId: productId,
-						...product,
+						id: uuidv4(),
+						src: product.src,
+						title: product.title,
+						price: product.price,
+						quantity: 1,
 					};
-					axios.post("http://localhost:3001/cart", product).then(() => {
+					axios.post("http://localhost:3001/cart", newItem).then(() => {
 						setCartItems([...cartItems, newItem]);
 					});
 				})
@@ -84,7 +90,9 @@ const CartContextProvider = ({ children }) => {
 			.put("http://localhost:3001/totalPrice", {
 				value: totalPrice,
 			})
-			.then((response) => {})
+			.then((response) => {
+				// console.log(response);
+			})
 			.catch((error) => {
 				console.error(error);
 			});
@@ -101,7 +109,7 @@ const CartContextProvider = ({ children }) => {
 			setTotalPrice(totalPrice);
 		};
 		updateCartItems(cartItems);
-	}, [cartItems]);
+	}, [cartItems, totalPrice]);
 
 	const value = {
 		cartItems,

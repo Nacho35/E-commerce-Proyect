@@ -16,7 +16,6 @@ import BgImageLight2 from "../assets/bg-light2.png";
 import BgDark from "../assets/bg-header.png";
 import BgBanner from "../assets/bg-offer.png";
 import BgBanner2 from "../assets/bg-offer2.jpg";
-import CartContextProvider from "./CartContext";
 
 const lightTheme = {
 	body: "#F0F0F0",
@@ -54,18 +53,16 @@ const Index = () => {
 	};
 	return (
 		<ThemeProvider theme={themes[theme]}>
-			<CartContextProvider>
-				<Navbar toggleTheme={toggleTheme} />
-				<Home />
-				<Gallery />
-				<Feature />
-				<Banner />
-				<CardsContainer />
-				<FoodMenu />
-				<ImagesTier />
-				<Form />
-				<Footer />
-			</CartContextProvider>
+			<Navbar toggleTheme={toggleTheme} />
+			<Home />
+			<Gallery />
+			<Feature />
+			<Banner />
+			<CardsContainer />
+			<FoodMenu />
+			<ImagesTier />
+			<Form />
+			<Footer />
 		</ThemeProvider>
 	);
 };
