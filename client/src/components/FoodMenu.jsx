@@ -89,7 +89,7 @@ const db = require("../api/db.json");
 const FoodMenu = () => {
 	const [products, setProducts] = useState([]);
 	const addToCart = useContext(CartContext);
-	console.log(addToCart);
+	// console.log(addToCart);
 
 	useEffect(() => {
 		axios
