@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
 	Box4,
 	BoxImg,
@@ -8,31 +8,24 @@ import {
 	Text,
 	TitleImg,
 } from "../styles/styledFoodMenu";
+import CartContext from "./CartContext";
 
-const ProductItem = ({ product, addToCart, deleteFromCart }) => {
-	let { src, title, description, price } = product;
-
-	const handleAddToCart = () => {
-		addToCart(product.id);
-	};
-
-	const handleDeleteClick = () => {
-		deleteFromCart(product.id);
-	};
+const ProductItem = (product) => {
+	const { addToCart, deleteFromCart } = useContext(CartContext);
 
 	return (
 		<Box4>
 			<BoxImg>
-				<Img src={src} alt="food" />
-				<TitleImg>{title}</TitleImg>
-				<Text>{description}</Text>
-				<Btn2 type="button" onClick={handleAddToCart}>
+				<Img {...[product.src]} alt="food" />
+				<TitleImg>{product.title}</TitleImg>
+				<Text>{product.description}</Text>
+				<Btn2 type="button" onClick={addToCart}>
 					To Order
 				</Btn2>
-				<Btn2 type="button" onClick={handleDeleteClick}>
+				<Btn2 type="button" onClick={deleteFromCart}>
 					Delete
 				</Btn2>
-				<Price>{price}</Price>
+				<Price>{product.price}</Price>
 			</BoxImg>
 		</Box4>
 	);

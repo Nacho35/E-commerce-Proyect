@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "../assets/food.svg";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import {
 	Box,
 	Box2,
@@ -20,7 +20,8 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
-import CartContext from "./CartContext";
+import ProductItem from "./ProductItem";
+import addToCart from "./ProductItem";
 
 const pic1 = require("../assets/product-1.jpg");
 const pic2 = require("../assets/product-2.jpg");
@@ -87,9 +88,9 @@ const images = {
 const db = require("../api/db.json");
 
 const FoodMenu = () => {
-	const [products, setProducts] = useState([]);
-	const addToCart = useContext(CartContext);
-	// console.log(addToCart);
+	const [products, setProducts] = useState([ProductItem]);
+	//* verificar si se puede pasar el parte del contexto para que lo utilize aqui?
+	//* console.log([products, setProducts]);.
 
 	useEffect(() => {
 		axios
@@ -147,15 +148,15 @@ const FoodMenu = () => {
 				</BoxBtn>
 			</Box3>
 			<Box4>
-				{products.map((product) => (
-					<BoxImg data-aos="flip-left" key={product.id}>
+				{products.map((product, id) => (
+					<BoxImg data-aos="flip-left" key={id}>
 						<Img src={images[product.src]} alt={product.title} />
 						<TitleImg>{product.title}</TitleImg>
 						<Text>{product.description}</Text>
 						<Btn2 type="button" onClick={() => addToCart(product.id)}>
 							To Order
 						</Btn2>
-						<Price>${product.price.toFixed(2)}</Price>
+						<Price>${product.price}</Price>
 					</BoxImg>
 				))}
 			</Box4>
