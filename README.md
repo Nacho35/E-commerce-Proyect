@@ -30,9 +30,11 @@ Para instalar las dependencias y ejecutar el servidor del frontend sigue los sig
   
 4. Ejecuta `npm run server` en la carpeta `client` para iniciar el servidor JSON.
   
-  `Una vez que hayas ejecutado estos comandos, podrás ver el sitio web en tu navegador web. El servidor del backend estará escuchando en el puerto 3001 y el servidor de React del frontend estará escuchando en el puerto 3000.`
+    Una vez que hayas ejecutado estos comandos, podrás ver el sitio web en tu navegador web. 
+
+    El servidor del backend estará escuchando en el puerto 3001 y el servidor de React del frontend estará escuchando en el puerto 3000.
   
-  `Es importante destacar que debes ejecutar ambos servidores para que el sitio web funcione correctamente.`
+    `Es importante destacar que debes ejecutar ambos servidores para que el sitio web funcione correctamente.`
   
 
 ## Contribución
