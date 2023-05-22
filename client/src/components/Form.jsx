@@ -26,8 +26,7 @@ AOS.init({
 	duration: 3000,
 	easing: "ease",
 	delay: 100,
-	once: false,
-	mirror: true,
+	once: true,
 });
 
 const Form = () => {

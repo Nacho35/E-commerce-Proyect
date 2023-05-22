@@ -21,7 +21,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 import ProductItem from "./ProductItem";
-import addToCart from "./ProductItem";
+import { useCart } from "./CartContext";
 
 const pic1 = require("../assets/product-1.jpg");
 const pic2 = require("../assets/product-2.jpg");
@@ -53,8 +53,7 @@ AOS.init({
 	duration: 3000,
 	easing: "ease",
 	delay: 100,
-	once: false,
-	mirror: true,
+	once: true,
 });
 
 const images = {
@@ -89,8 +88,7 @@ const db = require("../api/db.json");
 
 const FoodMenu = () => {
 	const [products, setProducts] = useState([ProductItem]);
-	//* verificar si se puede pasar el parte del contexto para que lo utilize aqui?
-	//* console.log([products, setProducts]);.
+	const { addToCart } = useCart();
 
 	useEffect(() => {
 		axios
@@ -115,13 +113,18 @@ const FoodMenu = () => {
 		filterProducts("all");
 	}, []);
 
+	const handleAddToCart = (product) => {
+		addToCart(product);
+		console.log(addToCart());
+	};
+
 	return (
 		<Box>
 			<Box2 data-aos="fade-up">
 				<I src={Icon} alt="icon" />
 				<Title>Our Menu</Title>
 			</Box2>
-			<Box3 data-aos="fade-down">
+			<Box3 data-aos="fade-up">
 				<BoxBtn>
 					<Btn onClick={() => filterProducts("all")}>All</Btn>
 				</BoxBtn>
@@ -153,10 +156,10 @@ const FoodMenu = () => {
 						<Img src={images[product.src]} alt={product.title} />
 						<TitleImg>{product.title}</TitleImg>
 						<Text>{product.description}</Text>
-						<Btn2 type="button" onClick={() => addToCart(product.id)}>
-							To Order
-						</Btn2>
 						<Price>${product.price}</Price>
+						<Btn2 type="button" onClick={() => handleAddToCart(product)}>
+							Add Cart
+						</Btn2>
 					</BoxImg>
 				))}
 			</Box4>
