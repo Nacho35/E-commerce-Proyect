@@ -1,7 +1,7 @@
 import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import FloatingButton from "./FloatingButton";
 import {
 	Box,
 	Box2,
@@ -47,6 +47,7 @@ const Home = () => {
 					</Btn>
 				</Box3>
 			</Box2>
+			<FloatingButton />
 		</Box>
 	);
 };
