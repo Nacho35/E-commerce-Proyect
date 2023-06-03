@@ -152,7 +152,7 @@ export const BoxImg = styled.div`
 `;
 
 export const Img = styled.img`
-	width: 80%;
+	max-width: 100%;
 	height: auto;
 	border-radius: 1rem;
 	margin: auto;

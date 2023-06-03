@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 
 export const CartContext = createContext({
 	cart: [],
@@ -13,62 +12,47 @@ export const CartContext = createContext({
 
 const CartContextProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
-	const [products, setProducts] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0);
+
+	const addToCart = (product) => {
+		const { id, src, title, price } = product;
+		const itemExists = cart.find((item) => item.id === id);
+
+		const updatedCart = itemExists
+			? cart.map((item) =>
+					item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+			  )
+			: [
+					...cart,
+					{
+						id: id,
+						src: src,
+						title: title,
+						price: price,
+						quantity: 1,
+					},
+			  ];
+
+		axios
+			.post("http://localhost:3001/cart", product)
+			.then((response) => {
+				console.log(response);
+				setCart(updatedCart);
+				localStorage.setItem("cart", JSON.stringify(updatedCart));
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 
 	useEffect(() => {
 		axios
 			.get("http://localhost:3001/products")
-			.then((response) => {
-				if (response && response.data) {
-					setProducts(response.data);
-					console.log(response.data);
-				}
-			})
+			.then(() => {})
 			.catch((error) => {
-				console.error(error);
+				console.log(error);
 			});
 	}, []);
-
-	const addToCart = (productId) => {
-		const product = products.find((product) => product.id === productId);
-		const itemExists = cart.find((item) => item.productId === productId);
-
-		if (itemExists) {
-			const updatedCart = cart.map((item) =>
-				item.productId === productId
-					? { ...item, quantity: item.quantity + 1 }
-					: item
-			);
-			axios
-				.put(`http://localhost:3001/cart/${productId}`, { cart: updatedCart })
-				.then(() => {
-					setCart(updatedCart);
-					localStorage.setItem("cart", JSON.stringify(updatedCart));
-				})
-				.catch((error) => {
-					console.log(error);
-				});
-		} else {
-			const newItem = {
-				productId: productId,
-				id: uuidv4(),
-				src: product.src,
-				title: product.title,
-				price: product.price,
-				quantity: 1,
-			};
-			axios
-				.post("http://localhost:3001/cart", { item: newItem })
-				.then(() => {
-					setCart([...cart, newItem]);
-					localStorage.setItem("cart", JSON.stringify([...cart, newItem]));
-				})
-				.catch((error) => {
-					console.log(error);
-				});
-		}
-	};
 
 	useEffect(() => {
 		const storedCart = localStorage.getItem("cart");
@@ -80,50 +64,38 @@ const CartContextProvider = ({ children }) => {
 	const deleteFromCart = (id) => {
 		axios
 			.delete(`http://localhost:3001/cart/${id}`)
-			.then(() => {
-				setCart(cart.filter((item) => item.id !== id));
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-	};
-
-	const clearCart = () => {
-		axios
-			.delete("http://localhost:3001/cart")
-			.then(() => {
-				setCart([]);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	};
-
-	const updateTotalPriceInJSON = (totalPrice) => {
-		axios
-			.put("http://localhost:3001/totalPrice", {
-				value: totalPrice,
-			})
 			.then((response) => {
 				console.log(response);
+				setCart(cart.filter((item) => item.id !== id));
+				localStorage.setItem(
+					"cart",
+					JSON.stringify(cart.filter((item) => item.id !== id))
+				);
 			})
 			.catch((error) => {
 				console.error(error);
+			});
+	};
+
+	const clearCart = (e) => {
+		e.stopPropagation();
+		axios
+			.put("http://localhost:3001/cart", []) //!! sigue sin funcionar !!
+			.then(() => {
+				setCart([]);
+				localStorage.removeItem("cart");
+			})
+			.catch((error) => {
+				console.error("Error al vaciar el carrito:", error);
 			});
 	};
 
 	useEffect(() => {
-		const updateCartItems = (newCartItems) => {
-			setCart(newCartItems);
-			const totalPrice = newCartItems.reduce(
-				(total, item) => total + item.price * item.quantity,
-				0
-			);
-			setTotalPrice(totalPrice);
-			updateTotalPriceInJSON(totalPrice);
-		};
-
-		updateCartItems(cart);
+		const totalPrice = cart.reduce(
+			(total, item) => total + item.price * item.quantity,
+			0
+		);
+		setTotalPrice(totalPrice);
 	}, [cart]);
 
 	const value = {
@@ -137,7 +109,6 @@ const CartContextProvider = ({ children }) => {
 
 	return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
-
 const useCart = () => useContext(CartContext);
 
 export { CartContextProvider, useCart };

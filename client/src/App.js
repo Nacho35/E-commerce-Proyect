@@ -7,11 +7,11 @@ import { CartContextProvider } from "./components/CartContext.jsx";
 function App() {
 	const [cart, setCart] = useState([]);
 	return (
-		<AppRouter>
-			<CartContextProvider value={{ cart, setCart }}>
+		<CartContextProvider value={{ cart, setCart }}>
+			<AppRouter>
 				<Index />
-			</CartContextProvider>
-		</AppRouter>
+			</AppRouter>
+		</CartContextProvider>
 	);
 }
 

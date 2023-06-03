@@ -201,7 +201,17 @@
       "type": "burgers"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "1",
+      "src": "pic1",
+      "title": "Double Cheese Pizza",
+      "description": "Delicious pizza with double cheese melted on top, with parmesan cheese and egg",
+      "price": 15.3,
+      "type": "pizzas",
+      "quantity": 1
+    }
+  ],
   "totalPrice": {
     "value": 0
   }
