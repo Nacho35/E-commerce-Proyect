@@ -1,7 +1,7 @@
 import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import FloatingButton from "./FloatingButton";
 import {
 	Box,
 	Box2,
@@ -17,8 +17,7 @@ AOS.init({
 	duration: 3000,
 	easing: "ease",
 	delay: 100,
-	once: false,
-	mirror: true,
+	once: true,
 });
 
 const Home = () => {
@@ -48,6 +47,7 @@ const Home = () => {
 					</Btn>
 				</Box3>
 			</Box2>
+			<FloatingButton />
 		</Box>
 	);
 };
