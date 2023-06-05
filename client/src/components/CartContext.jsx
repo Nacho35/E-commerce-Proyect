@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 export const CartContext = createContext({
 	cart: [],
@@ -15,8 +16,13 @@ const CartContextProvider = ({ children }) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 
 	const addToCart = (product) => {
+		const cartItemId = uuidv4();
 		const { id, src, title, price } = product;
-		const itemExists = cart.find((item) => item.id === id);
+		const itemExists = cart.find((item) => item.productId === id);
+
+		if (itemExists) {
+			return;
+		}
 
 		const updatedCart = itemExists
 			? cart.map((item) =>
@@ -25,7 +31,8 @@ const CartContextProvider = ({ children }) => {
 			: [
 					...cart,
 					{
-						id: id,
+						id: cartItemId,
+						productId: id,
 						src: src,
 						title: title,
 						price: price,
@@ -34,7 +41,10 @@ const CartContextProvider = ({ children }) => {
 			  ];
 
 		axios
-			.post("http://localhost:3001/cart", product)
+			.post("http://localhost:3001/cart", {
+				...product,
+				id: cartItemId,
+			})
 			.then((response) => {
 				console.log(response);
 				setCart(updatedCart);
@@ -57,7 +67,12 @@ const CartContextProvider = ({ children }) => {
 	useEffect(() => {
 		const storedCart = localStorage.getItem("cart");
 		if (storedCart) {
-			setCart(JSON.parse(storedCart));
+			try {
+				const parsedCart = JSON.parse(storedCart);
+				setCart(parsedCart);
+			} catch (error) {
+				console.log(error);
+			}
 		}
 	}, []);
 
@@ -78,16 +93,17 @@ const CartContextProvider = ({ children }) => {
 	};
 
 	const clearCart = (e) => {
-		e.stopPropagation();
+		setCart([]);
 		axios
-			.put("http://localhost:3001/cart", []) //!! sigue sin funcionar !!
-			.then(() => {
-				setCart([]);
+			.delete("http://localhost:8080/clear-cart")
+			.then((response) => {
+				console.log(response.data);
 				localStorage.removeItem("cart");
 			})
 			.catch((error) => {
-				console.error("Error al vaciar el carrito:", error);
+				console.log(error);
 			});
+		e.stopPropagation();
 	};
 
 	useEffect(() => {

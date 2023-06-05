@@ -1,4 +1,7 @@
 import React, { useContext, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import {
 	CartContainer,
 	Btn,
@@ -46,6 +49,12 @@ const ShoppingCart = () => {
 		setIsOpen(true);
 	};
 
+	const handleCompletePayment = () => {
+		setIsPaymentOpen(false);
+		setIsPaymentDataOpen(false);
+		setIsOpen(true);
+	};
+
 	return (
 		<CartButton type="button" onClick={() => setIsOpen(!isOpen)}>
 			{!isOpen ? (
@@ -53,6 +62,7 @@ const ShoppingCart = () => {
 			) : (
 				<Icons src={Cross} alt="cross icon" />
 			)}
+			<ToastContainer />
 			<CartContainer
 				style={{
 					display: isOpen ? "block" : "none",
@@ -69,7 +79,6 @@ const ShoppingCart = () => {
 									product={product}
 									addToCart={addToCart}
 									deleteFromCart={deleteFromCart}
-									clearCart={clearCart}
 									handleGoToPayment={handleGoToPayment}
 									showButtons={true}
 									showDeleteButton={true}
@@ -95,7 +104,10 @@ const ShoppingCart = () => {
 						{isPaymentDataOpen && (
 							<div className="modal">
 								<div className="modal-content">
-									<PaymentModal onCancel={handleCancelPayment} />
+									<PaymentModal
+										onCancel={handleCancelPayment}
+										onCompletePayment={handleCompletePayment}
+									/>
 								</div>
 							</div>
 						)}
