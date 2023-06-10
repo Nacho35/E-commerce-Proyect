@@ -156,7 +156,7 @@ export const Boxburguer1 = styled.div`
 export const Boxburguer2 = styled(animated.div)`
 	background-color: ${(props) => props.theme.body};
 	position: static;
-	height: auto;
+	height: 100vh;
 	width: auto;
 	display: flex;
 	align-items: flex-start;

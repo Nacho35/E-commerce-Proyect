@@ -148,12 +148,14 @@ export const BoxImg = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 1rem;
+	margin: auto;
+	width: 100%;
+	height: 100%;
 `;
 
 export const Img = styled.img`
-	max-width: 100%;
-	height: auto;
+	width: 100%;
+	height: 100%;
 	border-radius: 1rem;
 	margin: auto;
 	transition: all 1s ease;
@@ -221,8 +223,10 @@ export const Price = styled.h5`
 	display: flex;
 	justify-content: center;
 	font-weight: 900;
-	font-size: large;
+	font-size: 2rem;
+	font-family: "Merriweather", serif;
 	margin: 1.5rem;
+	font-size: 1.4rem;
 `;
 
 export const Btn2 = styled.button`

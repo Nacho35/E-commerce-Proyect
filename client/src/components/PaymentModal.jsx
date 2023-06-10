@@ -2,12 +2,29 @@ import React, { useState } from "react";
 import { Btn } from "../styles/styledShoppingCart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSpring, animated } from "@react-spring/web";
+import {
+	Container,
+	Title,
+	Form,
+	Label,
+	Field,
+} from "../styles/styled.PaymentModal";
 
+const AnimatedContainer = animated(Container);
 const PaymentModal = ({ onCancel, onCompletePayment }) => {
 	const [cardNumber, setCardNumber] = useState("");
 	const [cardName, setCardName] = useState("");
 	const [expiryDate, setExpiryDate] = useState("");
 	const [securityCode, setSecurityCode] = useState("");
+
+	const animation = useSpring({
+		opacity: 1,
+		from: { opacity: 0 },
+		config: {
+			delay: 500,
+		},
+	});
 
 	const notify = () =>
 		toast.success("Payment Completed. Thank You!", {
@@ -43,13 +60,17 @@ const PaymentModal = ({ onCancel, onCompletePayment }) => {
 	};
 
 	return (
-		<div>
-			<h3>Payment</h3>
-			<form onSubmit={handleCompletePayment} action="/" method="POST">
-				<label htmlFor="Credit/Debit Card Number">
+		<AnimatedContainer style={{ ...animation }}>
+			<Title>Payment</Title>
+			<Form
+				onSubmit={handleCompletePayment}
+				action="/"
+				method="POST"
+				onClick={(e) => e.stopPropagation()}>
+				<Label htmlFor="Credit/Debit Card Number">
 					Credit/Debit Card Number
-				</label>
-				<input
+				</Label>
+				<Field
 					type="text"
 					inputMode="numeric"
 					id="Credit/Debit Card Number"
@@ -65,8 +86,8 @@ const PaymentModal = ({ onCancel, onCompletePayment }) => {
 						setCardNumber(inputValue);
 					}}
 				/>
-				<label htmlFor="Name on Card">Name on Card</label>
-				<input
+				<Label htmlFor="Name on Card">Name on Card</Label>
+				<Field
 					type="text"
 					id="Name on Card"
 					name="Name on Card"
@@ -74,9 +95,14 @@ const PaymentModal = ({ onCancel, onCompletePayment }) => {
 					value={cardName}
 					onChange={(e) => setCardName(e.target.value)}
 					onClick={(e) => e.stopPropagation()}
+					onKeyUp={(e) => {
+						if (e.key === " ") {
+							e.preventDefault();
+						}
+					}}
 				/>
-				<label htmlFor="Expiry Date">Expiry Date</label>
-				<input
+				<Label htmlFor="Expiry Date">Expiry Date</Label>
+				<Field
 					type="text"
 					id="Expiry Date"
 					name="Expiry Date"
@@ -93,8 +119,8 @@ const PaymentModal = ({ onCancel, onCompletePayment }) => {
 							.replace(/^(\d{2})/, "$1/");
 					}}
 				/>
-				<label htmlFor="Security Code">Security Code</label>
-				<input
+				<Label htmlFor="Security Code">Security Code</Label>
+				<Field
 					type="text"
 					id="Security Code"
 					name="Security Code"
@@ -108,7 +134,7 @@ const PaymentModal = ({ onCancel, onCompletePayment }) => {
 						e.target.value = e.target.value.replace(/[^0-9]/g, "").slice(0, 3);
 					}}
 				/>
-			</form>
+			</Form>
 			<Btn type="button" onClick={onCancel}>
 				Back
 			</Btn>
@@ -127,7 +153,7 @@ const PaymentModal = ({ onCancel, onCompletePayment }) => {
 				pauseOnHover
 				theme="colored"
 			/>
-		</div>
+		</AnimatedContainer>
 	);
 };
 

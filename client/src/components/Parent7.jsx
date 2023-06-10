@@ -41,11 +41,11 @@ const themes = {
 
 const Parent7 = () => {
 	const [theme, setTheme] = useState(
-		() => window.localStorage.getItem("theme") || "light"
+		() => window.sessionStorage.getItem("theme") || "light"
 	);
 
 	useEffect(() => {
-		const storedTheme = localStorage.getItem("theme");
+		const storedTheme = sessionStorage.getItem("theme");
 		if (storedTheme) {
 			setTheme(storedTheme);
 		}
@@ -53,7 +53,7 @@ const Parent7 = () => {
 	const toggleTheme = () => {
 		const newTheme = theme === "light" ? "dark" : "light";
 		setTheme(newTheme);
-		localStorage.setItem("theme", newTheme);
+		sessionStorage.setItem("theme", newTheme);
 	};
 	return (
 		<ThemeProvider theme={themes[theme]}>

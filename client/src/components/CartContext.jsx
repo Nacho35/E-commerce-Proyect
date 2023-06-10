@@ -17,7 +17,7 @@ const CartContextProvider = ({ children }) => {
 
 	const addToCart = (product) => {
 		const cartItemId = uuidv4();
-		const { id, src, title, price } = product;
+		const { id, src, title, price, description } = product;
 		const itemExists = cart.find((item) => item.productId === id);
 
 		if (itemExists) {
@@ -35,6 +35,7 @@ const CartContextProvider = ({ children }) => {
 						productId: id,
 						src: src,
 						title: title,
+						description: description,
 						price: price,
 						quantity: 1,
 					},

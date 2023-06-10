@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ToastContainer } from "react-toastify";
+import { useSpring, animated } from "@react-spring/web";
 import "react-toastify/dist/ReactToastify.css";
-
 import {
 	CartContainer,
 	Btn,
@@ -12,13 +12,17 @@ import {
 	Title,
 	Price,
 	EmptyCart,
+	Divider,
 } from "../styles/styledShoppingCart";
 import CartS from "../assets/cart.svg";
 import Cross from "../assets/cross2.svg";
+import emptycart from "../assets/cart-empty.svg";
 import ProductItem from "./ProductItem";
 import PaymentTicket from "./PaymentTicket";
 import { CartContext } from "./CartContext";
 import PaymentModal from "./PaymentModal";
+
+const AnimatedCartContainer = animated(CartContainer);
 
 const ShoppingCart = () => {
 	const { cart, addToCart, deleteFromCart, clearCart, totalPrice } =
@@ -55,6 +59,13 @@ const ShoppingCart = () => {
 		setIsOpen(true);
 	};
 
+	const animation = useSpring({
+		opacity: isOpen ? 1 : 0,
+		config: {
+			delay: isOpen ? 0 : 700,
+		},
+	});
+
 	return (
 		<CartButton type="button" onClick={() => setIsOpen(!isOpen)}>
 			{!isOpen ? (
@@ -63,13 +74,17 @@ const ShoppingCart = () => {
 				<Icons src={Cross} alt="cross icon" />
 			)}
 			<ToastContainer />
-			<CartContainer
+			<AnimatedCartContainer
 				style={{
+					...animation,
 					display: isOpen ? "block" : "none",
 				}}>
 				<Title>My Cart</Title>
 				{cart.length === 0 ? (
-					<EmptyCart>Ops! Nothing Here</EmptyCart>
+					<EmptyCart>
+						<img src={emptycart} alt="empty cart" />
+						<p>Ops! Nothing Here</p>
+					</EmptyCart>
 				) : (
 					<>
 						<List>
@@ -85,10 +100,10 @@ const ShoppingCart = () => {
 								/>
 							))}
 						</List>
-						<hr />
+						<Divider />
 						<Subtitle>
 							Total Price:
-							<Price>${totalPrice.toFixed(2)}</Price>
+							<Price>${totalPrice.toFixed()}</Price>
 						</Subtitle>
 						<Btn onClick={clearCart}>Clear cart</Btn>
 						<Btn onClick={handleGoToPayment}>Go to Payment</Btn>
@@ -113,7 +128,7 @@ const ShoppingCart = () => {
 						)}
 					</>
 				)}
-			</CartContainer>
+			</AnimatedCartContainer>
 		</CartButton>
 	);
 };

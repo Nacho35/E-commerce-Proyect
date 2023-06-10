@@ -132,12 +132,16 @@ const ProductItem = ({
 				<Img src={images[src]} alt="food" />
 				<TitleImg>{title}</TitleImg>
 				<Text>{description}</Text>
-				<Price>${price}</Price>
+				<Price>${price.toFixed(2)}</Price>
 				{showButtons && (
-					<div>
-						<button onClick={decrementQuantity}>-</button>
-						<p>{quantity}</p>
-						<button onClick={incrementQuantity}>+</button>
+					<div className="btn-container">
+						<span className="button-85" onClick={decrementQuantity}>
+							-
+						</span>
+						<p className="quantity">{quantity}</p>
+						<span className="button-85" onClick={incrementQuantity}>
+							+
+						</span>
 					</div>
 				)}
 				{showAddToCartButton && (

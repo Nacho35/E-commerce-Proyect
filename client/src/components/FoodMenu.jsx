@@ -47,28 +47,76 @@ const FoodMenu = () => {
 			</Box2>
 			<Box3 data-aos="fade-up">
 				<BoxBtn>
-					<Btn onClick={() => filterProducts("all")}>All</Btn>
+					<Btn
+						onClick={(e) => {
+							e.preventDefault();
+							filterProducts("all");
+						}}>
+						All
+					</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn onClick={() => filterProducts("pizzas")}>Pizzas</Btn>
+					<Btn
+						onClick={(e) => {
+							e.preventDefault();
+							filterProducts("pizzas");
+						}}>
+						Pizzas
+					</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn onClick={() => filterProducts("burgers")}>Burgers</Btn>
+					<Btn
+						onClick={(e) => {
+							e.preventDefault();
+							filterProducts("burgers");
+						}}>
+						Burgers
+					</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn onClick={() => filterProducts("pasts")}>Pasta</Btn>
+					<Btn
+						onClick={(e) => {
+							e.preventDefault();
+							filterProducts("pasts");
+						}}>
+						Pasta
+					</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn onClick={() => filterProducts("drinks")}>Drinks</Btn>
+					<Btn
+						onClick={(e) => {
+							e.preventDefault();
+							filterProducts("drinks");
+						}}>
+						Drinks
+					</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn onClick={() => filterProducts("steaks")}>Steaks</Btn>
+					<Btn
+						onClick={(e) => {
+							e.preventDefault();
+							filterProducts("steaks");
+						}}>
+						Steaks
+					</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn onClick={() => filterProducts("deserts")}>Deserts</Btn>
+					<Btn
+						onClick={(e) => {
+							e.preventDefault();
+							filterProducts("deserts");
+						}}>
+						Deserts
+					</Btn>
 				</BoxBtn>
 				<BoxBtn>
-					<Btn onClick={() => filterProducts("salads")}>Salads</Btn>
+					<Btn
+						onClick={(e) => {
+							e.preventDefault();
+							filterProducts("salads");
+						}}>
+						Salads
+					</Btn>
 				</BoxBtn>
 			</Box3>
 			<Box4>

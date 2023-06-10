@@ -1,21 +1,48 @@
 import styled from "styled-components";
 import { colors } from "./Theme";
+import { animated } from "@react-spring/web";
 
-export const CartContainer = styled.div`
+export const CartContainer = styled(animated.div)`
 	display: none;
 	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
-	width: 300px;
+	width: auto;
 	height: auto;
-	padding: 1rem;
+	padding: 10px;
 	background-color: ${(props) => props.theme.body};
-	overflow-y: auto;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	@media (min-width: 375px) {
+		display: block;
+		width: 80%;
+	}
 
 	@media (min-width: 768px) {
 		display: block;
-		width: 400px;
+		width: 40%;
+	}
+
+	@media (min-width: 992px) {
+		display: block;
+		width: 35%;
+	}
+
+	@media (min-width: 1024px) {
+		display: block;
+		width: 35%;
+	}
+
+	@media (min-width: 1200px) {
+		display: block;
+		width: 30%;
+	}
+
+	@media (min-width: 1920px) {
+		display: block;
+		width: 20%;
 	}
 `;
 
@@ -32,9 +59,10 @@ export const Icons = styled.img`
 `;
 
 export const Title = styled.h2`
-	color: ${colors.five};
+	color: orangered;
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
+	font-family: "Merriweather", serif;
 `;
 
 export const Subtitle = styled.div`
@@ -42,7 +70,10 @@ export const Subtitle = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	font-size: 1.25rem;
+	font-weight: 600;
 	margin-bottom: 1rem;
+	color: orangered;
+	font-family: "Merriweather", serif;
 `;
 
 export const Btn = styled.button`
@@ -75,15 +106,26 @@ export const Btn = styled.button`
 `;
 
 export const List = styled.ul`
-	margin: 0;
-	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	padding: 1rem;
 `;
 
 export const Price = styled.span`
-	font-weight: bold;
+	font-weight: 600;
+	color: orangered;
+	font-family: "Merriweather", serif;
 `;
 
-export const EmptyCart = styled.p`
-	margin-top: 1rem;
-	color: ${colors.five};
+export const EmptyCart = styled.div`
+	margin-top: 10rem;
+	color: orangered;
+	font-size: 2rem;
+`;
+
+export const Divider = styled.p`
+	border-top: 1px solid orangered;
 `;
