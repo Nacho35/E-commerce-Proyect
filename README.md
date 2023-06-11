@@ -6,17 +6,22 @@ Los usuarios pueden ver fotos de las comidas que el restaurante ofrece, así com
 
 Dependecias Utilizadas:
 
-- React
+- @react-spring/web
 - AOS
-- Styled Components
-- React Slick
-- Slick Carousel
-- Spring-Web
 - Axios
-- Ol
-- Json-Server
-- Uuid
-- React-router-dom
+- JSON-Server
+- OL
+- OverlayScrollbars
+- OverlayScrollbars-React
+- React
+- React-DOM
+- React-Router-DOM
+- React-Scripts
+- React-Slick
+- React-Toastify
+- Slick-Carousel
+- Styled-Components
+- UUID
 
 ## Instalación
 
@@ -29,22 +34,45 @@ Para instalar las dependencias y ejecutar el servidor del frontend sigue los sig
 3. Ejecuta `npm start` en las carpetas `client` y para iniciar el servidor del frontend
   
 4. Ejecuta `npm run server` en la carpeta `client` para iniciar el servidor JSON.
+
+5. Ejecuta `npm start` en la carpeta `api`  Esto ejecutará el servidor de `Node` en el puerto 8080.
   
     Una vez que hayas ejecutado estos comandos, podrás ver el sitio web en tu navegador web. 
 
-    El servidor del backend estará escuchando en el puerto 3001 y el servidor de React del frontend estará escuchando en el puerto 3000.
+    El servidor del backend estará escuchando en el puerto 3001 y 8080 y el servidor de React del frontend estará escuchando en el puerto 3000.
   
-    `Es importante destacar que debes ejecutar ambos servidores para que el sitio web funcione correctamente.`
+    `Es importante destacar que debes ejecutar todos los servidores para que el sitio web funcione correctamente.`
   
 
 ## Contribución
 
 Si deseas contribuir al proyecto, por favor sigue estos pasos:
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama para tu contribución.
-3. Realiza los cambios que consideres necesarios.
-4. Haz un pull request a la rama principal del repositorio.
+1. Haz un fork del repositorio original en tu propia cuenta de GitHub.
+2. Clona el repositorio en tu máquina local.
+3. Crea una rama con tus cambios.
+4. Realiza tus cambios en el código.
+5. Haz commit de tus cambios y push a tu rama.
+6. Haz pull request en el repositorio original con tu rama.
+
+Recuerda que antes de realizar cambios en el código, es importante leer la documentación existente y asegurarse de comprender cómo funciona el proyecto.
+
+### Contribuciones permitidas
+
+Algunas contribuciones que se pueden realizar en el proyecto incluyen:
+
+- Mejorar la calidad del código.
+- Añadir nuevas funcionalidades.
+- Corregir errores existentes.
+- Mejorar la documentación del proyecto.
+
+### Contribuciones no permitidas
+
+Algunas contribuciones que no se permiten en el proyecto incluyen:
+
+- Cambios que afecten negativamente el rendimiento del proyecto.
+- Cambios que rompan la compatibilidad con navegadores o dispositivos.
+- Añadir contenido ofensivo o inapropiado.
 
 ## Licencia
 
