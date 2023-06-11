@@ -2,10 +2,16 @@
 	"version": 2,
 	"builds": [
 		{ "src": "client/**", "use": "@vercel/static" },
-		{ "src": "api/**", "use": "@vercel/node" }
+		{ "src": "api/db.json", "use": "json-server" },
+		{ "src": "api/index.js", "use": "@vercel/node" }
 	],
 	"routes": [
-		{ "src": "/api/([^/]*)", "dest": "api/$1" },
-		{ "src": "/(.*)", "dest": "client/public/$1" }
-	]
+		{ "src": "/api/(.*)", "dest": "/api/$1" },
+		{ "src": "/(.*)", "dest": "/client/index.html" }
+	],
+	"env": {
+		"NODE_SERVER_PORT": "8080",
+		"JSON_SERVER_PORT": "3001",
+		"REACT_SERVER_PORT": "3000"
+	}
 }
