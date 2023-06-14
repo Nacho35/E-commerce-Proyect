@@ -5,7 +5,7 @@ services:
     env:
       - name: PORT
         value: 3000
-        routes:
+    routes:
       - src: /
         dest: public
 
