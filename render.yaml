@@ -1,10 +1,13 @@
 services:
   - name: react-app
-    buildCommand: cd client/src && npm install
+    buildCommand: cd client && npm install && npm run build
     startCommand: cd client/src && npm start
     env:
       - name: PORT
         value: 3000
+        routes:
+      - src: /
+        dest: public
 
   - name: node-app
     buildCommand: cd client/src/api && npm install
